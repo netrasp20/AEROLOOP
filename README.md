@@ -187,4 +187,3 @@ Our vision is to transform agricultural drones from simple image-collecting mach
 
 ---
 
-*Note: Dashboard values and AI model choices are proposed or illustrative unless explicitly validated through field testing.*
