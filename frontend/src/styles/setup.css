@@ -1,0 +1,3022 @@
+/* ==================================================================
+   Yantrayug SETUP (VEHICLE SETUP) — QGC-style Vehicle Configuration
+   Dark purple/violet visual identity, matching the existing design system.
+   ================================================================== */
+
+.setup-screen {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  background: #0b1020;
+  color: #e5e7eb;
+}
+
+/* ---------- Top bar ---------- */
+.setup-topbar {
+  height: 60px;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 22px;
+  background: linear-gradient(180deg, #12172a, #0b1020);
+  border-bottom: 1px solid #27272a;
+}
+
+.setup-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.setup-brand-mark {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7c3aed, #ec4899);
+  box-shadow: 0 0 12px rgba(124, 58, 237, 0.55);
+}
+
+.setup-brand-text {
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size: 14px;
+  color: #e9d5ff;
+}
+
+.setup-top-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+}
+
+.setup-conn-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+}
+
+.setup-conn-chip.good { background: rgba(52, 211, 153, 0.14); color: #34d399; }
+.setup-conn-chip.armed { background: rgba(239, 68, 68, 0.16); color: #f87171; }
+.setup-conn-chip.idle { background: rgba(148, 163, 184, 0.12); color: #9ca3af; }
+
+.setup-top-mode {
+  padding: 3px 10px;
+  border-radius: 6px;
+  background: #1c2340;
+  color: #c4b5fd;
+  font-weight: 600;
+}
+
+.setup-top-vehicle { color: #9ca3af; }
+
+/* ---------- Body / layout ---------- */
+.setup-body {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 235px 1fr;
+}
+
+.setup-nav-panel {
+  background: #111827;
+  border-right: 1px solid #27272a;
+  overflow-y: auto;
+  padding: 18px 10px;
+}
+
+.setup-content-panel {
+  overflow-y: auto;
+  padding: 26px 30px;
+  background: #0b1020;
+}
+
+/* ---------- Nav ---------- */
+.setup-nav-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #9ca3af;
+  margin: 0 10px 12px;
+}
+
+.setup-nav-list { list-style: none; margin: 0; padding: 0; }
+
+.setup-nav-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  margin-bottom: 2px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #cbd5e1;
+  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.setup-nav-item:hover { background: rgba(124, 58, 237, 0.08); color: #ede9fe; }
+
+.setup-nav-item.active {
+  background: rgba(124, 58, 237, 0.16);
+  color: #e9d5ff;
+  font-weight: 600;
+}
+
+.setup-nav-icon { flex: none; opacity: 0.8; }
+.setup-nav-item.active .setup-nav-icon { color: #c084fc; opacity: 1; }
+.setup-nav-label { flex: 1; }
+
+.setup-nav-badge {
+  flex: none;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: rgba(245, 158, 11, 0.18);
+  color: #fbbf24;
+  font-size: 11px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---------- Pages ---------- */
+.setup-page {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.setup-page-header { margin-bottom: 18px; }
+
+.setup-page-title {
+  margin: 0 0 4px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.setup-page-subtitle {
+  margin: 0;
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+.setup-card {
+  background: #111827;
+  border: 1px solid #27272a;
+  border-radius: 14px;
+  padding: 18px 20px;
+  margin-bottom: 16px;
+}
+
+.setup-card-title {
+  margin: 0 0 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 700;
+  color: #e2e8f0;
+  letter-spacing: 0.3px;
+}
+
+.setup-config-counts { display: inline-flex; gap: 12px; font-size: 11px; font-weight: 600; flex-wrap: wrap; }
+.setup-count-good { color: #34d399; }
+.setup-count-warn { color: #fbbf24; }
+.setup-count-unsupported { color: #f87171; }
+.setup-count-unknown { color: #94a3b8; }
+.setup-count-waiting { color: #94a3b8; }
+.setup-count-gray { color: #64748b; }
+
+/* ---------- Disconnected/empty states ---------- */
+.setup-disconnected,
+.setup-setup-inactive-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 260px;
+  padding: 30px;
+  border: 1px dashed #31353f;
+  border-radius: 14px;
+  color: #9ca3af;
+  text-align: center;
+}
+
+.setup-disconnected-title,
+.setup-inactive-title {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 700;
+  color: #e2e8f0;
+}
+
+.setup-disconnected-hint,
+.setup-inactive-desc,
+.setup-inactive-status {
+  margin: 0;
+  font-size: 13px;
+  color: #94a3b8;
+  max-width: 460px;
+}
+
+.setup-disconnected-reason {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #ef4444;
+}
+
+.setup-inactive-status { color: #7c3aed; font-weight: 600; }
+
+.setup-empty-note { margin: 6px 0 0; font-size: 13px; color: #94a3b8; }
+
+/* ---------- Identity tiles ---------- */
+.setup-identity-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.setup-identity-tile {
+  background: #0f1526;
+  border: 1px solid #22263a;
+  border-radius: 10px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.setup-identity-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #7b8aa7;
+}
+
+.setup-identity-value {
+  font-size: 15px;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.setup-identity-pulse { color: #34d399; }
+
+/* ---------- Firmware ---------- */
+.setup-firmware-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.setup-firmware-value {
+  font-size: 16px;
+  font-weight: 700;
+  color: #c4b5fd;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.setup-refresh-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px;
+  border: 1px solid #38324f;
+  border-radius: 8px;
+  background: #171a2c;
+  color: #c4b5fd;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.setup-refresh-btn:hover:not(:disabled) { background: rgba(124, 58, 237, 0.16); }
+.setup-refresh-btn:disabled { opacity: 0.5; cursor: default; }
+
+.setup-fw-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 10px 26px; }
+
+.setup-fw-row { display: flex; justify-content: space-between; gap: 14px; padding: 7px 0; border-bottom: 1px solid #1c2133; }
+.setup-fw-label { color: #94a3b8; font-size: 12px; }
+.setup-fw-value { color: #e2e8f0; font-size: 13px; font-weight: 600; }
+
+.setup-fw-loading,
+.setup-fw-error {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+.setup-fw-loading { background: rgba(124, 58, 237, 0.08); color: #c4b5fd; }
+.setup-fw-error { background: rgba(239, 68, 68, 0.09); color: #fca5a5; }
+
+.setup-fw-error-title { font-weight: 700; margin: 0 0 4px; }
+
+.setup-fw-error-reason { margin: 6px 0 0; font-size: 12px; color: #fda4af; }
+
+.setup-fw-ok { color: #34d399; }
+
+.setup-fw-unavailable { color: #fbbf24; }
+
+.setup-fw-install-available {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  background: rgba(52, 211, 153, 0.08);
+  color: #6ee7b7;
+  margin-bottom: 14px;
+}
+
+.setup-fw-install-unavailable {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.5;
+  background: rgba(251, 191, 36, 0.07);
+  color: #fcd34d;
+  margin-bottom: 14px;
+}
+
+.setup-fw-status-card { margin-bottom: 6px; }
+
+/* ---------- QGC-style Firmware workflow ---------- */
+.setup-firmware-page { width: 100%; max-width: none; min-width: 0; margin: 0; }
+.setup-firmware-page .setup-page-header { margin-bottom: 22px; }
+.setup-firmware-page .setup-page-title { font-size: 28px; }
+.setup-firmware-page .setup-page-subtitle { font-size: 15px; line-height: 1.5; }
+.setup-firmware-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(330px, .95fr);
+  gap: 18px;
+  align-items: start;
+}
+.setup-firmware-details { display: grid; gap: 18px; min-width: 0; }
+.setup-firmware-workflow,
+.setup-firmware-current,
+.setup-firmware-detected,
+.setup-firmware-install {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 24px 26px;
+  border: 1px solid #27272a;
+  border-radius: 10px;
+  background: #111827;
+}
+.setup-firmware-page > .setup-firmware-workflow { min-height: 250px; }
+.setup-firmware-workflow h3,
+.setup-firmware-current h3,
+.setup-firmware-detected h3 {
+  margin: 0;
+  color: #e2e8f0;
+  font-size: 20px;
+  line-height: 1.35;
+}
+.setup-firmware-workflow-title { margin: 16px 0 8px; color: #e2e8f0; font-size: 18px; font-weight: 600; }
+.setup-firmware-workflow-copy { margin: 0; color: #a6b3c7; font-size: 15px; line-height: 1.55; }
+.setup-firmware-section { margin-top: 24px; min-width: 0; }
+.setup-firmware-stack { margin-top: 18px; }
+.setup-firmware-section h4 { margin: 0 0 13px; color: #dce2ed; font-size: 17px; font-weight: 700; }
+.setup-firmware-values { min-width: 0; }
+.setup-firmware-value-row {
+  display: grid;
+  grid-template-columns: minmax(90px, 35%) minmax(0, 1fr);
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid #232a3b;
+  font-size: 15px;
+  line-height: 1.45;
+}
+.setup-firmware-value-row:last-child { border-bottom: 0; }
+.setup-firmware-value-row > span { color: #a6b3c7; }
+.setup-firmware-value-row > strong { min-width: 0; color: #e2e8f0; font-weight: 600; overflow-wrap: anywhere; }
+.setup-firmware-option { display: flex; align-items: center; gap: 10px; color: #e2e8f0; font-size: 15px; }
+.setup-firmware-option input { accent-color: #8b5cf6; }
+.setup-firmware-label { display: block; margin-bottom: 8px; color: #94a3b8; font-size: 12px; }
+.setup-firmware-select { min-width: 230px; padding: 7px 9px; border: 1px solid #38324f; border-radius: 6px; background: #0f1526; color: #e2e8f0; font: inherit; font-size: 13px; }
+.setup-firmware-compatibility-status { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; font-size: 15px; color: #a6b3c7; }
+.setup-firmware-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border: 1px solid rgba(245, 158, 11, .3);
+  border-radius: 8px;
+  background: rgba(245, 158, 11, .1);
+  color: #fbbf24;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+.setup-firmware-status-dot { width: 9px; height: 9px; flex: none; border-radius: 50%; background: currentColor; }
+.setup-firmware-status[data-outcome="EXACT_MATCH"],
+.setup-firmware-status[data-outcome="CONFIRMED_COMPATIBLE"] { color: #6ee7b7; border-color: rgba(52, 211, 153, .3); background: rgba(52, 211, 153, .1); }
+.setup-firmware-status[data-outcome="UNSUPPORTED"],
+.setup-firmware-status[data-outcome="UNKNOWN"] { color: #cbd5e1; border-color: #384153; background: #1c2535; }
+.setup-firmware-status[data-outcome="UNAVAILABLE"] { color: #fca5a5; border-color: rgba(239, 68, 68, .3); background: rgba(239, 68, 68, .09); }
+.setup-firmware-counts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin: 18px 0; padding: 16px 0; border-top: 1px solid #303548; border-bottom: 1px solid #303548; }
+.setup-firmware-count { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.setup-firmware-count strong { color: #e2e8f0; font-size: 21px; line-height: 1.3; font-weight: 700; }
+.setup-firmware-count span { color: #a6b3c7; font-size: 14px; }
+.setup-firmware-unavailable { margin: 0; color: #fbbf24; font-size: 16px; font-weight: 600; line-height: 1.45; }
+.setup-firmware-note { margin: 10px 0 0; color: #a6b3c7; font-size: 14px; line-height: 1.55; overflow-wrap: anywhere; }
+.setup-firmware-actions { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.setup-firmware-action { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 38px; padding: 8px 13px; border: 1px solid #38324f; border-radius: 6px; background: #171a2c; color: #c4b5fd; font: inherit; font-size: 14px; cursor: pointer; }
+.setup-firmware-action:hover:not(:disabled) { background: rgba(124, 58, 237, .16); }
+.setup-firmware-action:disabled { cursor: default; opacity: .55; }
+.setup-firmware-current-header { margin-bottom: 13px; }
+.setup-firmware-detected h3 { margin-bottom: 13px; }
+.setup-firmware-install { display: grid; grid-template-columns: 18px minmax(0, 1fr); align-items: start; gap: 14px; border-color: rgba(245, 158, 11, .28); color: #fbbf24; }
+.setup-firmware-install > svg { flex: none; margin-top: 2px; }
+.setup-firmware-install > div { min-width: 0; }
+.setup-firmware-install strong { color: #fcd34d; font-size: 17px; line-height: 1.4; }
+.setup-firmware-install p { margin: 8px 0 0; color: #b4c0d1; font-size: 14px; line-height: 1.55; overflow-wrap: anywhere; }
+.setup-firmware-install .setup-firmware-action { grid-column: 2; justify-self: start; }
+
+@media (max-width: 1150px) {
+  .setup-firmware-layout { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 700px) {
+  .setup-firmware-workflow,
+  .setup-firmware-current,
+  .setup-firmware-detected,
+  .setup-firmware-install { padding: 20px; }
+  .setup-firmware-counts { gap: 12px; }
+  .setup-firmware-count strong { font-size: 18px; }
+}
+
+.setup-note {
+  margin: 16px 0 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #7b8aa7;
+}
+
+/* ---------- Read-only actuator and ESC inspection ---------- */
+.actuator-page-title { display: flex; align-items: center; gap: 8px; }
+.actuator-warning, .actuator-unavailable { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 16px; padding: 12px 14px; border: 1px solid rgba(245, 158, 11, .25); border-radius: 10px; background: rgba(245, 158, 11, .08); color: #fcd34d; font-size: 12.5px; line-height: 1.45; }
+.actuator-unavailable { color: #94a3b8; border-color: #31384b; background: #0f1526; }
+.actuator-table-wrap { overflow-x: auto; }
+.actuator-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.actuator-table th { padding: 8px 10px; border-bottom: 1px solid #38324f; color: #94a3b8; text-align: left; font-size: 10.5px; text-transform: uppercase; letter-spacing: .5px; white-space: nowrap; }
+.actuator-table td { padding: 10px; border-bottom: 1px solid #1c2133; color: #dbe3ef; white-space: nowrap; }
+.actuator-table tbody tr:hover { background: rgba(124, 58, 237, .05); }
+.actuator-arm-state, .actuator-freshness { padding: 3px 8px; border-radius: 999px; font-size: 10px; font-weight: 700; letter-spacing: .4px; }
+.actuator-arm-state.armed { color: #f87171; background: rgba(239, 68, 68, .14); }
+.actuator-arm-state.disarmed, .actuator-freshness.available { color: #34d399; background: rgba(52, 211, 153, .12); }
+.actuator-freshness.stale { color: #fbbf24; background: rgba(245, 158, 11, .12); }
+.actuator-freshness.unavailable { color: #94a3b8; background: rgba(148, 163, 184, .1); }
+.actuator-param-id { display: block; margin-top: 3px; color: #64748b; font-size: 10px; font-style: normal; }
+
+/* ---------- Config status matrix ---------- */
+.setup-status-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.setup-status-list li {
+  list-style: none;
+  margin-bottom: 8px;
+}
+
+.setup-status-row {
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #1c2133;
+  border-left: 3px solid transparent;
+  background: #0f1526;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.setup-status-row:hover {
+  background: rgba(124, 58, 237, 0.08);
+  border-color: #38324f;
+}
+
+.setup-status-row:focus-visible {
+  outline: 2px solid #7c3aed;
+  outline-offset: 1px;
+}
+
+.setup-tone-good { border-left-color: #34d399; }
+.setup-tone-warn { border-left-color: #f59e0b; }
+.setup-tone-bad { border-left-color: #ef4444; }
+.setup-tone-unsupported { border-left-color: #ef4444; }
+.setup-tone-unknown { border-left-color: #64748b; }
+.setup-tone-waiting { border-left-color: #94a3b8; }
+.setup-tone-gray { border-left-color: #64748b; }
+
+.setup-tone-good .setup-status-icon { color: #34d399; }
+.setup-tone-warn .setup-status-icon { color: #f59e0b; }
+.setup-tone-bad .setup-status-icon { color: #ef4444; }
+.setup-tone-unsupported .setup-status-icon { color: #ef4444; }
+.setup-tone-unknown .setup-status-icon { color: #94a3b8; }
+.setup-tone-waiting .setup-status-icon { color: #94a3b8; }
+.setup-tone-gray .setup-status-icon { color: #64748b; }
+
+.setup-status-body { display: flex; flex-direction: column; gap: 2px; flex: 1; }
+
+.setup-status-label { font-weight: 600; font-size: 13px; color: #e2e8f0; }
+.setup-status-message { font-size: 13px; color: #cbd5e1; }
+.setup-status-detail { font-size: 11.5px; color: #7b8aa7; }
+
+.setup-status-chevron { flex: none; align-self: center; color: #7b8aa7; }
+
+.setup-sync-note {
+  margin: 0 0 10px;
+  font-size: 12px;
+  color: #c4b5fd;
+  background: rgba(124, 58, 237, 0.08);
+  border-radius: 8px;
+  padding: 7px 10px;
+}
+
+/* ---------- Compact classic-GCS Summary ---------- */
+.setup-summary-page {
+  width: 100%;
+  /* Fill the available content panel width instead of a narrow centered block;
+     the .setup-content-panel padding keeps content off the screen edges. */
+  max-width: none;
+  margin: 0;
+}
+
+/* Summary-only typography: clear hierarchy of page title > section title >
+   status values > labels/descriptions. Scoped so other Setup pages are
+   untouched. */
+.setup-summary-page .setup-page-header { margin-bottom: 22px; }
+.setup-summary-page .setup-page-title { font-size: 26px; }
+.setup-summary-page .setup-page-subtitle { font-size: 15px; }
+.setup-summary-page .setup-disconnected { min-height: 320px; }
+
+.setup-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+.setup-summary-panel {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #303548;
+  border-radius: 4px;
+  background: #111827;
+}
+.setup-summary-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 40px;
+  padding: 9px 14px;
+  border-bottom: 1px solid #303548;
+  background: linear-gradient(180deg, #252b3b, #1c2231);
+}
+.setup-summary-panel-header h3 {
+  margin: 0;
+  color: #e2e8f0;
+  font-size: 16px;
+  line-height: 1.35;
+  font-weight: 700;
+  letter-spacing: .35px;
+}
+.setup-summary-dot {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 14px;
+  border-radius: 50%;
+  background: #64748b;
+  box-shadow: 0 0 0 3px rgba(100, 116, 139, .14);
+}
+.setup-summary-tone-good { background: #34d399; box-shadow: 0 0 0 3px rgba(52, 211, 153, .18); }
+.setup-summary-tone-warn { background: #f59e0b; box-shadow: 0 0 0 3px rgba(245, 158, 11, .18); }
+.setup-summary-tone-bad { background: #ef4444; box-shadow: 0 0 0 3px rgba(239, 68, 68, .18); }
+.setup-summary-tone-muted { background: #94a3b8; }
+.setup-summary-tone-waiting {
+  background: #94a3b8;
+  animation: setup-summary-pulse 1.6s ease-in-out infinite;
+}
+@keyframes setup-summary-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .35; }
+}
+.setup-summary-panel-body { padding: 10px 14px 12px; }
+.setup-summary-row {
+  display: grid;
+  grid-template-columns: minmax(110px, 40%) minmax(0, 1fr);
+  gap: 12px;
+  align-items: baseline;
+  min-height: 30px;
+  padding: 5px 0;
+  border-bottom: 1px solid #202638;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.setup-summary-row:last-of-type { border-bottom: 0; }
+.setup-summary-row > span { color: #93a0b5; font-size: 13px; }
+.setup-summary-row > strong {
+  min-width: 0;
+  overflow: hidden;
+  color: #e5e7eb;
+  font-size: 14px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.setup-summary-panel-actions { display: flex; gap: 12px; padding-top: 8px; }
+.setup-summary-link,
+.setup-summary-panel-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 0;
+  border: 0;
+  background: transparent;
+  color: #b9a7ff;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+.setup-summary-link:hover,
+.setup-summary-panel-link:hover { color: #ddd6fe; text-decoration: underline; }
+.setup-summary-link:disabled { cursor: default; opacity: .55; }
+.setup-summary-panel-link { margin-top: 6px; }
+
+@media (max-width: 760px) {
+  .setup-summary-grid { grid-template-columns: 1fr; }
+}
+
+/* ---------- Spinner ---------- */
+.setup-spinner { animation: setup-spin 1s linear infinite; }
+
+@keyframes setup-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ---------- Parameters (Setup) ---------- */
+.setup-params-card { padding: 14px; }
+
+.setup-params-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.setup-params-search { flex: 1 1 220px; }
+
+.setup-params-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #2b2f45;
+  border-radius: 8px;
+  background: #0f1526;
+  color: #e2e8f0;
+  font-size: 13px;
+}
+
+.setup-params-input:focus { outline: none; border-color: #7c3aed; }
+
+.setup-params-toggles { display: inline-flex; gap: 6px; }
+
+.setup-params-toggle {
+  padding: 6px 10px;
+  border: 1px solid #2b2f45;
+  border-radius: 8px;
+  background: #141826;
+  color: #94a3b8;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.setup-params-toggle.active {
+  background: rgba(124, 58, 237, 0.2);
+  border-color: #6d28d9;
+  color: #e9d5ff;
+  font-weight: 600;
+}
+
+.setup-params-actions { display: inline-flex; gap: 8px; margin-left: auto; }
+
+.setup-params-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 13px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.setup-params-btn:disabled { opacity: 0.45; cursor: default; }
+
+.setup-params-btn-primary {
+  background: rgba(124, 58, 237, 0.22);
+  border-color: #6d28d9;
+  color: #e9d5ff;
+}
+
+.setup-params-btn-primary:hover:not(:disabled) { background: rgba(124, 58, 237, 0.32); }
+
+.setup-params-btn-danger {
+  background: #171a2c;
+  border-color: #2b2f45;
+  color: #9ca3af;
+}
+
+.setup-params-btn-danger:hover:not(:disabled) { background: rgba(239, 68, 68, 0.14); color: #fca5a5; }
+
+.setup-params-body {
+  display: grid;
+  grid-template-columns: 210px 1fr;
+  gap: 2px;
+  border: 1px solid #22263a;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.setup-params-tree {
+  background: #0d1220;
+  border-right: 1px solid #22263a;
+  padding: 8px;
+  overflow-y: auto;
+  max-height: 560px;
+}
+
+.setup-params-table { min-width: 0; }
+
+/* ---------- Frame / Airframe ---------- */
+
+.frame-field {
+  padding: 12px 0;
+  border-bottom: 1px solid #1c2133;
+}
+
+.frame-field:last-of-type { border-bottom: 0; }
+
+.frame-field-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.frame-field-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #e2e8f0;
+}
+
+.frame-reboot-chip {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: #fbbf24;
+  background: rgba(245, 158, 11, 0.12);
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.frame-meta-note {
+  font-size: 11px;
+  color: #7b8aa7;
+}
+
+.frame-field-select-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.frame-select {
+  min-width: 260px;
+  padding: 9px 12px;
+  border: 1px solid #2b2f45;
+  border-radius: 10px;
+  background: #0f1526;
+  color: #e2e8f0;
+  font-size: 13.5px;
+  cursor: pointer;
+}
+
+.frame-select:focus { outline: none; border-color: #7c3aed; }
+.frame-select:disabled { opacity: 0.5; cursor: default; }
+
+.frame-values {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 12.5px;
+}
+
+.frame-current { color: #94a3b8; }
+.frame-current strong { color: #e2e8f0; }
+
+.frame-pending {
+  color: #fbbf24;
+  background: rgba(245, 158, 11, 0.1);
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+.frame-pending strong { color: #fde68a; }
+
+.frame-unsupported-line {
+  margin: 8px 0 0;
+  font-size: 12.5px;
+  color: #f59e0b;
+}
+
+.setup-frame-loading,
+.frame-write-running {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  font-size: 13px;
+  color: #c4b5fd;
+  background: rgba(124, 58, 237, 0.08);
+}
+
+.frame-write-running span {
+  margin-left: auto;
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.frame-error {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 0 0 14px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: rgba(239, 68, 68, 0.09);
+  color: #fca5a5;
+  font-size: 13px;
+}
+
+.frame-apply-card { display: flex; flex-direction: column; gap: 12px; }
+
+.frame-unsaved {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: #fbbf24;
+}
+
+.frame-unsaved span { color: #d1d5db; }
+
+.frame-reboot-warning {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: rgba(245, 158, 11, 0.1);
+  color: #fde68a;
+  font-size: 13px;
+}
+
+.frame-apply-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.frame-conflict-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fbbf24;
+}
+
+.frame-conflict-list {
+  list-style: none;
+  margin: 10px 0;
+  padding: 0;
+}
+
+.frame-conflict-row {
+  display: flex;
+  gap: 10px;
+  padding: 6px 10px;
+  background: #0f1526;
+  border-radius: 8px;
+  margin-bottom: 6px;
+  font-size: 12.5px;
+}
+
+.frame-conflict-id { font-weight: 600; color: #e2e8f0; }
+.frame-conflict-detail { color: #94a3b8; }
+
+.frame-result-ok,
+.frame-result-warn {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 4px 0;
+}
+
+.frame-result-ok { color: #34d399; }
+.frame-result-warn { color: #fbbf24; }
+
+.frame-result-items {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+}
+
+.frame-result-items li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px;
+  background: #0f1526;
+  border-radius: 8px;
+  margin-bottom: 6px;
+  font-size: 12.5px;
+}
+
+.frame-result-id { font-weight: 700; color: #e2e8f0; }
+
+.frame-result-status {
+  font-weight: 600;
+  padding: 1px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.frame-result-status.is-success { background: rgba(52, 211, 153, 0.14); color: #34d399; }
+.frame-result-status.is-failed { background: rgba(239, 68, 68, 0.14); color: #f87171; }
+.frame-result-status.is-not_attempted { background: rgba(148, 163, 184, 0.14); color: #9ca3af; }
+
+.frame-result-verified { color: #94a3b8; margin-left: auto; }
+.frame-result-msg { color: #f87171; }
+
+/* ---------- QGC-style Sensors workspace ---------- */
+.setup-sensors-page { width: 100%; max-width: none; }
+.setup-sensors-layout { display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 16px; align-items: start; width: 100%; }
+.setup-sensor-statusbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 0 0 10px; padding: 8px 11px; border: 1px solid #272f43; border-radius: 7px; background: #0f1526; color: #94a3b8; font-size: 12px; }
+.setup-sensor-statusbar strong { color: #e2e8f0; font-weight: 600; }
+.setup-sensor-identity-compact { display: none; }
+.setup-sensor-identity-compact .setup-identity-grid { display: none; }
+.setup-sensor-list { display: flex; flex-direction: column; gap: 3px; padding: 7px; border: 1px solid #272f43; border-radius: 8px; background: #111827; }
+.setup-sensor-list-item { display: flex; align-items: center; gap: 8px; padding: 9px 8px; border: 1px solid transparent; border-radius: 5px; background: transparent; color: #cbd5e1; font: inherit; font-size: 12px; text-align: left; cursor: pointer; }
+.setup-sensor-list-item:hover { background: rgba(124, 58, 237, .1); }
+.setup-sensor-list-item.is-selected { border-color: #6d4cc1; background: rgba(124, 58, 237, .18); color: #f1f5f9; }
+.setup-sensor-status-dot { width: 8px; height: 8px; flex: 0 0 8px; border-radius: 50%; background: #64748b; }
+.setup-sensor-list-item.is-selected .setup-sensor-status-dot { box-shadow: 0 0 0 2px rgba(167, 139, 250, .3); }
+.setup-sensor-status-dot.sensor-status-calibrated { background: #34d399; }
+.setup-sensor-status-dot.sensor-status-not-calibrated { background: #ef4444; }
+.setup-sensor-status-dot.sensor-status-in-progress { background: #fbbf24; }
+.setup-sensor-status-dot.sensor-status-unsupported, .setup-sensor-status-dot.sensor-status-unknown { background: #64748b; }
+.setup-sensor-workspace { min-width: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; align-items: start; }
+.setup-sensor-workspace .sensor-card { margin-bottom: 0; min-width: 0; }
+.setup-sensor-workspace .sensor-card { display: none; }
+.setup-sensor-workspace.selected-accelerometer .sensor-card[data-sensor-key="accelerometer"],
+.setup-sensor-workspace.selected-gyro .sensor-card[data-sensor-key="gyro"],
+.setup-sensor-workspace.selected-baro .sensor-card[data-sensor-key="baro"],
+.setup-sensor-workspace.selected-level .sensor-card[data-sensor-key="level"],
+.setup-sensor-workspace.selected-compass .sensor-card[data-sensor-key="compass"],
+.setup-sensor-workspace.selected-settings .sensor-card[data-sensor-key="settings"],
+.setup-sensor-workspace.selected-compassmot .sensor-card[data-sensor-key="compassmot"] { display: flex; }
+.setup-sensor-workspace .sensor-card[data-sensor-key="compass"],
+.setup-sensor-workspace .sensor-card[data-sensor-key="compassmot"],
+.setup-sensor-workspace .sensor-card[data-sensor-key="settings"],
+.setup-sensor-workspace .sensor-card-active { grid-column: 1 / -1; }
+
+/* ---------- QGC-style Radio Setup ---------- */
+.setup-radio-page { width: 100%; max-width: none; }
+/* Stronger, consistent panel separation. Deliberately subtle: a 1px violet-tinted
+   border reads as a section without turning the page into a stack of boxes. */
+.radio-status-strip { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 0 0 18px; padding: 11px 16px; border: 1px solid #3a4160; border-radius: 10px; background: #111827; color: #a8b3c7; font-size: 12.5px; }
+.radio-status-strip strong { color: #c4b5fd; }
+.radio-main-workspace { display: grid; grid-template-columns: minmax(0, 1fr) minmax(330px, 380px); gap: 18px; align-items: start; }
+.radio-main-column, .radio-side-column { min-width: 0; display: flex; flex-direction: column; gap: 16px; }
+.radio-section { min-width: 0; padding: 16px 18px; border: 1px solid #333c58; border-radius: 12px; background: linear-gradient(180deg, rgba(23, 27, 46, 0.72), rgba(15, 21, 38, 0.72)); }
+.radio-side-section { min-width: 0; padding: 16px 18px; border: 1px solid #333c58; border-radius: 12px; background: linear-gradient(180deg, rgba(23, 27, 46, 0.72), rgba(15, 21, 38, 0.72)); }
+.radio-section:hover, .radio-side-section:hover { border-color: #414b6d; }
+.radio-section .setup-card-title, .radio-side-section .setup-card-title { margin: 0 0 12px; font-size: 13.5px; letter-spacing: 0.3px; }
+.radio-status-identity { color: #cbd5e1; }
+.radio-advanced-config { margin-top: 0; }
+.radio-advanced-config > summary { cursor: pointer; list-style-position: inside; }
+.radio-additional-title { margin-top: 16px; font-size: 12.5px; }
+.radio-additional-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.radio-unsupported-control { padding: 6px 10px; border: 1px solid #39415c; border-radius: 6px; color: #8593b0; font-size: 11.5px; }
+.radio-additional-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px 20px; }
+.radio-additional-row { display: grid; grid-template-columns: minmax(0, 1fr) 190px; align-items: center; gap: 10px; color: #cbd5e1; font-size: 12px; }
+.radio-additional-row select { width: 100%; padding: 6px 8px; border: 1px solid #39415c; border-radius: 6px; background: #0f1526; color: #64748b; font: inherit; }
+.radio-additional-row select:not(:disabled) { color: #e2e8f0; }
+.radio-additional-row select:disabled { cursor: not-allowed; }
+/* The guided calibration instructions must be visible — they are the whole
+   point of a guided wizard. */
+.radio-cal-hint { margin: 0 0 12px; padding: 11px 13px; border-left: 3px solid #7c3aed; border-radius: 0 8px 8px 0; background: rgba(124, 58, 237, 0.09); color: #ddd6fe; font-size: 12.5px; line-height: 1.55; }
+.radio-cal-warning { padding: 10px 12px; margin: 0 0 12px; border-radius: 8px; font-size: 12px; display: flex; align-items: flex-start; gap: 8px; }
+.radio-attitude-card .setup-fw-grid { padding: 0; display: block; }
+.radio-attitude-rows { display: flex; flex-direction: column; gap: 12px; }
+.radio-attitude-row { display: grid; grid-template-columns: minmax(104px, auto) minmax(150px, auto) minmax(0, 1fr); align-items: center; gap: 14px; min-width: 0; padding: 10px 12px; border: 1px solid #2e3550; border-radius: 9px; background: rgba(15, 21, 38, 0.5); }
+.radio-attitude-label { color: #e8edf6; font-size: 12.5px; font-weight: 650; }
+.radio-attitude-map { color: #c4b5fd; font-size: 11.5px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.radio-attitude-row .radio-bar-row { grid-column: 1 / -1; }
+.radio-attitude-row .radio-bar-row { min-height: 0; padding: 0; }
+.radio-mode-toggle { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 14px; }
+.radio-mode-toggle button { border: 1px solid #39415c; border-radius: 6px; padding: 6px 12px; background: #0f1526; color: #a8b3c7; font: inherit; font-size: 11.5px; font-weight: 600; cursor: pointer; transition: border-color 120ms ease, background 120ms ease; }
+.radio-mode-toggle button:hover { border-color: #4d5a80; }
+.radio-mode-toggle button.is-selected { border-color: #8b5cf6; background: rgba(124, 58, 237, 0.2); color: #e9d5ff; }
+.radio-transmitter-visual { display: flex; flex-direction: column; gap: 14px; }
+.radio-transmitter-note { margin: 0; font-size: 11px; color: #7b8aa7; line-height: 1.5; }
+/* Sticks: equal size, guaranteed circular, aligned on one baseline. */
+.radio-stick-pair { display: grid; grid-template-columns: 1fr 1fr; align-items: start; justify-items: center; gap: 18px; padding: 4px 0 2px; }
+.radio-stick { position: relative; width: clamp(96px, 13vw, 132px); aspect-ratio: 1 / 1; border: 1.5px solid #46527a; border-radius: 50%; background: radial-gradient(circle at 50% 50%, rgba(124, 58, 237, 0.14) 0 2px, transparent 3px), radial-gradient(circle at 50% 50%, #1c2740 0%, #131a2c 70%, #0f1526 100%); box-shadow: inset 0 0 22px rgba(0, 0, 0, 0.45); }
+.radio-stick::before, .radio-stick::after { content: ""; position: absolute; background: #3c4767; }
+.radio-stick::before { top: 50%; left: 14%; right: 14%; height: 1px; transform: translateY(-50%); }
+.radio-stick::after { top: 14%; bottom: 14%; left: 50%; width: 1px; transform: translateX(-50%); }
+.radio-stick-cap { position: absolute; font-size: 9.5px; font-weight: 700; letter-spacing: 0.4px; color: #8593b0; text-transform: uppercase; }
+.radio-stick-cap.top { top: -2px; left: 50%; transform: translate(-50%, -100%); }
+.radio-stick-cap.bottom { bottom: -2px; left: 50%; transform: translate(-50%, 100%); }
+.radio-stick-cap.left { left: -2px; top: 50%; transform: translate(-100%, -50%); }
+.radio-stick-cap.right { right: -2px; top: 50%; transform: translate(100%, -50%); }
+.radio-stick span { position: absolute; z-index: 2; width: 14px; height: 14px; transform: translate(-50%, -50%); border: 2px solid #ddd6fe; border-radius: 50%; background: #7c3aed; box-shadow: 0 0 10px rgba(124, 58, 237, 0.55); transition: left 110ms linear, top 110ms linear; }
+.radio-transmitter-values { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 10px; color: #a8b3c7; font-size: 11px; }
+.radio-transmitter-values span { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.radio-transmitter-values b { color: #e8edf6; font-weight: 700; }
+/* ---------- Aux / parameter channel capability rows ---------- */
+.radio-aux-row { display: grid; grid-template-columns: 62px minmax(0, 1fr) 190px; align-items: center; gap: 10px; padding: 8px 10px; border: 1px solid #2e3550; border-radius: 8px; background: rgba(15, 21, 38, 0.5); }
+.radio-aux-channel { font-size: 11.5px; font-weight: 700; color: #a8b3c7; font-variant-numeric: tabular-nums; }
+.radio-aux-label { font-size: 12px; color: #e2e8f0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.radio-aux-label.is-unsupported { color: #8593b0; font-style: italic; }
+/* ---------- Calibration stage rail ---------- */
+.radio-cal-stage { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 14px; }
+.radio-cal-stage-chip { display: inline-flex; align-items: center; gap: 6px; padding: 5px 11px; border: 1px solid #39415c; border-radius: 999px; font-size: 11px; font-weight: 700; letter-spacing: 0.4px; color: #8593b0; background: rgba(15, 21, 38, 0.6); }
+.radio-cal-stage-chip.is-current { border-color: #8b5cf6; background: rgba(124, 58, 237, 0.18); color: #e9d5ff; }
+.radio-cal-stage-chip.is-done { border-color: rgba(52, 211, 153, 0.45); color: #34d399; }
+/* ---------- Channel monitor extras ---------- */
+.radio-monitor-row-meta { grid-column: 2; display: flex; flex-wrap: wrap; gap: 4px 10px; font-size: 10px; color: #7b8aa7; font-variant-numeric: tabular-nums; }
+.radio-channel-state { font-size: 9.5px; font-weight: 800; letter-spacing: 0.5px; padding: 1px 6px; border-radius: 999px; }
+.radio-channel-state.is-live { background: rgba(52, 211, 153, 0.14); color: #34d399; }
+.radio-channel-state.is-waiting { background: rgba(245, 158, 11, 0.14); color: #fbbf24; }
+.radio-channel-state.is-stale { background: rgba(148, 163, 184, 0.14); color: #94a3b8; }
+.radio-channel-state.is-unavailable { background: rgba(239, 68, 68, 0.12); color: #f87171; }
+.radio-bar-track .radio-bar-trim { position: absolute; top: -2px; bottom: -2px; width: 2px; background: #c4b5fd; box-shadow: 0 0 4px rgba(196, 181, 253, 0.7); }
+.radio-rssi-unavailable { color: #8593b0; font-style: italic; }
+/* RCMAP pending marker */
+.radio-map-row { display: grid; grid-template-columns: minmax(104px, auto) 132px minmax(0, 1fr); align-items: center; gap: 12px; }
+.radio-map-input { width: 100%; padding: 6px 8px; border: 1px solid #39415c; border-radius: 6px; background: #0f1526; color: #e2e8f0; font: inherit; font-size: 12px; font-variant-numeric: tabular-nums; }
+.radio-map-current { font-size: 11px; color: #8593b0; font-variant-numeric: tabular-nums; }
+.radio-map-current.is-pending { color: #fbbf24; font-weight: 700; }
+.radio-reboot-warning { display: flex; align-items: flex-start; gap: 8px; padding: 10px 12px; margin: 12px 0 0; border: 1px solid rgba(245, 158, 11, 0.35); border-radius: 8px; background: rgba(245, 158, 11, 0.09); color: #fcd34d; font-size: 12px; }
+
+/* ---------- Responsive: no clipping, no nested scrollbars ---------- */
+@media (max-width: 1500px) {
+  .radio-main-workspace { grid-template-columns: minmax(0, 1fr) minmax(300px, 340px); }
+}
+@media (max-width: 1240px) {
+  .radio-main-workspace { grid-template-columns: minmax(0, 1fr); }
+  .radio-side-column { flex-direction: row; flex-wrap: wrap; }
+  .radio-side-column > * { flex: 1 1 320px; }
+  .radio-monitor { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+}
+@media (max-width: 900px) {
+  .radio-section { padding: 14px; }
+  .radio-attitude-row, .radio-map-row { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .radio-attitude-row .radio-bar-row, .radio-map-row .radio-bar-row { grid-column: 1; }
+  .radio-additional-row { grid-template-columns: minmax(0, 1fr); }
+  .radio-aux-row { grid-template-columns: 54px minmax(0, 1fr); }
+  .radio-aux-row select { grid-column: 1 / -1; }
+  .radio-stick { width: clamp(84px, 22vw, 112px); }
+}
+
+@media (max-width: 760px) {
+  .setup-sensors-layout { grid-template-columns: 1fr; }
+  .setup-sensor-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .setup-sensor-workspace { grid-template-columns: 1fr; }
+  .radio-main-workspace { grid-template-columns: 1fr; }
+}
+
+/* ---------- QGC-style ArduCopter airframe workspace ---------- */
+.setup-frame-page { width: 100%; max-width: none; }
+.frame-live-status { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 0 0 16px; color: #94a3b8; font-size: 12px; }
+.frame-live-status strong { color: #e2e8f0; font-weight: 600; }
+.frame-airframe-group { margin-bottom: 14px; }
+.frame-airframe-group h3 { margin: 0 0 8px; color: #94a3b8; font-size: 11px; font-weight: 700; letter-spacing: .9px; text-transform: uppercase; }
+.frame-airframe-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; padding: 2px 2px 6px; }
+.frame-airframe-card { min-width: 0; overflow: hidden; border: 1px solid #303548; border-radius: 8px; background: #111827; transition: border-color .15s ease, background .15s ease; }
+.frame-airframe-card:hover { border-color: #6651a8; background: #151c2e; }
+.frame-airframe-card.is-selected { border-color: #8b5cf6; box-shadow: 0 0 0 1px rgba(139, 92, 246, .3); }
+.frame-airframe-card-select { width: 100%; display: flex; flex-direction: column; align-items: center; padding: 12px 10px 8px; border: 0; background: transparent; color: inherit; cursor: pointer; }
+.frame-airframe-card-select:focus-visible { outline: 2px solid #a78bfa; outline-offset: -3px; }
+.frame-airframe-card-title { align-self: flex-start; color: #e2e8f0; font-size: 14px; font-weight: 700; }
+.frame-airframe-art { width: 130px; height: 130px; margin: 8px 0 4px; }
+.frame-airframe-art line { stroke: #64748b; stroke-width: 2.5; }
+.frame-airframe-art ellipse, .frame-airframe-art path { fill: none; stroke: #a78bfa; stroke-width: 2; }
+.frame-airframe-art circle { fill: #8b5cf6; stroke: #c4b5fd; stroke-width: 1.2; }
+.frame-airframe-art .frame-art-coax { fill: #c4b5fd; stroke: #8b5cf6; stroke-width: 1; }
+.frame-art-core { fill: #334155; stroke: #94a3b8; stroke-width: 1.5; }
+.frame-art-core.frame-art-selected { fill: #7c3aed; stroke: #ddd6fe; }
+.frame-airframe-current { color: #c4b5fd; font-size: 10px; font-weight: 700; letter-spacing: .8px; }
+.frame-airframe-pending { color: #fbbf24; font-size: 10px; font-weight: 700; letter-spacing: .8px; }
+.frame-airframe-variant { display: flex; flex-direction: column; gap: 4px; padding: 8px 10px 10px; border-top: 1px solid #202638; color: #94a3b8; font-size: 11px; }
+.frame-airframe-variant .frame-select { width: 100%; }
+.frame-parameter-controls { margin-top: 12px; padding: 10px 14px; }
+.frame-parameter-controls .setup-card-title { margin-bottom: 6px; }
+.frame-parameter-controls .frame-field { padding: 5px 0; }
+
+/* ---------- Sensors / Accelerometer calibration ---------- */
+
+.accel-status-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  color: #c4b5fd;
+  background: rgba(124, 58, 237, 0.08);
+  margin: 4px 0 14px;
+}
+
+.accel-status-banner strong { color: #e9d5ff; }
+
+.accel-prompt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 24px 16px;
+  border: 1px dashed #3b4163;
+  border-radius: 12px;
+  background: #0f1526;
+  margin-bottom: 14px;
+}
+
+.accel-prompt-step {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #7c3aed;
+}
+
+.accel-prompt-label {
+  font-size: 17px;
+  font-weight: 700;
+  color: #e2e8f0;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.accel-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.accel-result {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.accel-result[data-testid^="setup-accel-result-success"] {
+  background: rgba(52, 211, 153, 0.1);
+  color: #34d399;
+}
+
+.accel-result[data-testid^="setup-accel-result-failed"] {
+  background: rgba(239, 68, 68, 0.09);
+  color: #fca5a5;
+}
+
+/* ---------- QGC-style per-sensor cards ---------- */
+
+.sensor-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sensor-card-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.sensor-card-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  background: rgba(124, 58, 237, 0.16);
+  color: #c084fc;
+}
+
+.sensor-card-subtitle {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  color: #7b8aa7;
+}
+
+.accel-readout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 10px 12px;
+  background: #0f1526;
+  border: 1px solid #22263a;
+  border-radius: 10px;
+}
+
+.accel-readout-value {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #e2e8f0;
+}
+
+.compass-progress {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.compass-progress-track {
+  flex: 1;
+  height: 8px;
+  border-radius: 999px;
+  background: #1c2340;
+  overflow: hidden;
+}
+
+.compass-progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #7c3aed, #ec4899);
+  transition: width 0.3s ease;
+}
+
+.compass-progress-label {
+  flex: none;
+  font-size: 12px;
+  font-weight: 700;
+  color: #c4b5fd;
+}
+
+.accel-result[data-testid^="setup-sensor-result"] {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.accel-result[data-testid^="setup-sensor-result-success"] {
+  background: rgba(52, 211, 153, 0.1);
+  color: #34d399;
+}
+
+.accel-result[data-testid^="setup-sensor-result-failed"],
+.accel-result[data-testid^="setup-sensor-result-cancelled"] {
+  background: rgba(239, 68, 68, 0.09);
+  color: #fca5a5;
+}
+
+/* ---------- derived sensor status chips (backend-computed state) ---------- */
+
+.sensor-status-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+  white-space: nowrap;
+}
+
+.sensor-status-calibrated {
+  background: rgba(52, 211, 153, 0.13);
+  color: #34d399;
+  border: 1px solid rgba(52, 211, 153, 0.28);
+}
+
+.sensor-status-not-calibrated {
+  background: rgba(251, 191, 36, 0.12);
+  color: #fbbf24;
+  border: 1px solid rgba(251, 191, 36, 0.28);
+}
+
+.sensor-status-unsupported {
+  background: rgba(126, 137, 160, 0.12);
+  color: #9aa5b8;
+  border: 1px solid rgba(126, 137, 160, 0.26);
+}
+
+.sensor-status-unknown {
+  background: rgba(126, 137, 160, 0.12);
+  color: #9aa5b8;
+  border: 1px dashed rgba(126, 137, 160, 0.32);
+}
+
+.compass-status-text {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #c4b5fd;
+}
+
+.compass-fit {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 8px 12px;
+  background: #0f1526;
+  border: 1px solid #22263a;
+  border-radius: 10px;
+  font-size: 12.5px;
+  color: #7b8aa7;
+}
+
+.compass-fit strong {
+  color: #e2e8f0;
+}
+
+/* ---------- compass settings + FC orientation rows ---------- */
+
+.compass-settings-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.compass-settings-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  color: #cbd5e1;
+}
+
+.compass-settings-device {
+  padding: 8px 12px;
+  background: #0f1526;
+  border: 1px solid #22263a;
+  border-radius: 10px;
+  margin-bottom: 8px;
+}
+/* ==================================================================
+   PHASE 8E — RADIO SETUP
+   RC signal, channel monitor, main controls, channel config, calibration
+   ================================================================== */
+
+.radio-page-message {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 14px;
+  margin-bottom: 14px;
+  border-radius: 10px;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  color: #fcd34d;
+  font-size: 12.5px;
+}
+
+.radio-signal-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+.radio-signal-ok { background: rgba(52, 211, 153, 0.12); color: #34d399; }
+.radio-signal-bad { background: rgba(239, 68, 68, 0.14); color: #f87171; }
+.radio-signal-warn { background: rgba(245, 158, 11, 0.12); color: #fbbf24; }
+
+/* ---------- Channel monitor ---------- */
+.radio-monitor {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 10px 24px;
+}
+.radio-bar-row {
+  display: grid;
+  grid-template-columns: 46px 1fr 56px;
+  align-items: center;
+  gap: 10px;
+}
+.radio-bar-channel {
+  font-size: 11.5px;
+  color: #94a3b8;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+.radio-bar-track {
+  position: relative;
+  height: 12px;
+  border-radius: 6px;
+  background: #151b30;
+  border: 1px solid #22263a;
+  overflow: hidden;
+}
+.radio-bar-fill {
+  height: 100%;
+  min-width: 2px;
+  background: linear-gradient(90deg, #7c3aed, #a78bfa);
+  transition: width 120ms linear;
+}
+.radio-bar-row.radio-bar-stale .radio-bar-fill {
+  background: #374151;
+}
+.radio-bar-value {
+  font-size: 12px;
+  font-weight: 700;
+  color: #e2e8f0;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.radio-no-data {
+  padding: 18px;
+  border-radius: 10px;
+  background: rgba(245, 158, 11, 0.07);
+  border: 1px dashed rgba(245, 158, 11, 0.35);
+  color: #fbbf24;
+  font-size: 12.5px;
+}
+
+/* ---------- Main control mapping ---------- */
+.radio-mapping-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+}
+.radio-mapping-table th {
+  text-align: left;
+  color: #94a3b8;
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 7px 10px;
+  border-bottom: 1px solid #22263a;
+}
+.radio-mapping-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #161b2c;
+  color: #e2e8f0;
+}
+
+/* ---------- Channel configuration ---------- */
+.radio-config-table {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.radio-config-row {
+  display: grid;
+  grid-template-columns: 70px 1fr 1fr 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  background: #0f1526;
+  border: 1px solid #22263a;
+  border-radius: 10px;
+}
+.radio-config-channel {
+  font-size: 12px;
+  font-weight: 700;
+  color: #c4b5fd;
+}
+.radio-config-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.radio-config-field.radio-config-reversed {
+  justify-content: flex-end;
+}
+.radio-config-label {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #94a3b8;
+  letter-spacing: 0.4px;
+}
+.radio-config-field input[type="number"] {
+  width: 100%;
+  padding: 5px 8px;
+  border-radius: 7px;
+  border: 1px solid #22263a;
+  background: #0b1020;
+  color: #e2e8f0;
+  font-size: 12.5px;
+  font-variant-numeric: tabular-nums;
+}
+.radio-config-field input[type="number"]:focus {
+  outline: none;
+  border-color: #7c3aed;
+}
+.radio-config-field input[type="checkbox"] {
+  accent-color: #7c3aed;
+}
+.radio-config-field input:disabled {
+  opacity: 0.5;
+}
+.radio-unsaved {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: rgba(124, 58, 237, 0.1);
+  color: #c4b5fd;
+  font-size: 12px;
+}
+.radio-config-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+/* ---------- Calibration ---------- */
+.radio-cal-step {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+.radio-cal-hint {
+  color: #cbd5e1;
+  font-size: 12.5px;
+  line-height: 1.5;
+  margin: 0;
+}
+.radio-cal-warning {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 12px;
+  margin-bottom: 14px;
+  border-radius: 10px;
+  background: rgba(245, 158, 11, 0.09);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  color: #fbbf24;
+  font-size: 12.5px;
+}
+.radio-cal-running {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #c4b5fd;
+  font-size: 13px;
+}
+.radio-cal-values {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 6px 16px;
+}
+.radio-cal-values li {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 12px;
+  padding: 5px 10px;
+  background: #0f1526;
+  border: 1px solid #1c2133;
+  border-radius: 8px;
+}
+
+/* Final flat Radio workspace overrides: this page is a configuration surface,
+   not a stack of dashboard cards. */
+.setup-radio-page .radio-main-workspace { gap: 24px; }
+.setup-radio-page .radio-section,
+.setup-radio-page .radio-side-section { border-radius: 0; box-shadow: none; }
+.setup-radio-page .radio-cal-step { gap: 6px; }
+.setup-radio-page .radio-monitor { display: grid; grid-template-columns: 1fr 1fr; column-gap: 12px; row-gap: 1px; }
+.setup-radio-page .radio-monitor .radio-bar-row { min-width: 0; }
+.setup-radio-page .radio-attitude-row { grid-template-columns: 125px 125px minmax(0, 1fr); min-height: 32px; }
+.setup-radio-page .radio-attitude-row .radio-bar-row { grid-column: 3; }
+.setup-radio-page .radio-additional-grid { gap: 4px 24px; }
+.setup-radio-page .radio-status-strip { padding: 4px 0; margin-bottom: 10px; border: 0; border-radius: 0; background: transparent; }
+.setup-radio-page .radio-transmitter-card { min-height: 0; }
+.setup-radio-page .radio-no-data { padding: 0; border: 0; border-radius: 0; background: transparent; color: #fbbf24; font-size: 11px; }
+.setup-radio-page .radio-attitude-row > .radio-no-data { grid-column: 3; }
+.setup-radio-page .radio-cal-warning { padding: 4px 0; margin: 0 0 4px; border: 0; border-radius: 0; background: transparent; font-size: 11px; }
+.setup-radio-page .radio-cal-warning + .radio-cal-step { margin-top: 0; }
+.radio-cal-values li span:first-child {
+  color: #94a3b8;
+  font-variant-numeric: tabular-nums;
+}
+.radio-cal-values li span:last-child {
+  color: #34d399;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.radio-cal-success {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(52, 211, 153, 0.1);
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  color: #6ee7b7;
+  font-size: 12.5px;
+}
+.radio-cal-failed {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(239, 68, 68, 0.09);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+  font-size: 12.5px;
+}
+
+/* ---------------------------------------------------------------- *
+ * Power Setup (Phase 8F)
+ * ---------------------------------------------------------------- */
+.power-instance {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.power-instance > section.setup-card {
+  padding: 14px 16px;
+}
+.power-battery-workflow {
+  padding: 14px 16px;
+  border: 1px solid #263449;
+  border-radius: 10px;
+  background: rgba(15, 23, 42, 0.38);
+}
+.power-subsection {
+  padding: 12px 0;
+  border-top: 1px solid rgba(71, 85, 105, 0.45);
+}
+.power-battery-workflow > .power-subsection:first-of-type {
+  border-top: 0;
+}
+.power-subsection .setup-card-title {
+  margin-bottom: 8px;
+}
+.power-battery-workflow .setup-fw-grid {
+  gap: 4px 18px;
+}
+.power-battery-workflow .power-calc-grid {
+  margin-top: 10px;
+}
+.power-instance > section[data-testid^="power-status-"] {
+  order: -1;
+  padding: 10px 14px;
+}
+.power-instance > section[data-testid^="power-monitor-"],
+.power-instance > section[data-testid^="power-thresholds-"],
+.power-instance > section[data-testid^="power-calibration-"],
+.power-instance > section[data-testid^="power-advanced-"] {
+  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.42);
+}
+.power-instance .setup-card-title {
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+.power-instance .setup-note {
+  margin-top: 8px;
+}
+.power-health-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: 8px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  vertical-align: middle;
+}
+.power-health-good {
+  color: #6ee7b7;
+  background: rgba(52, 211, 153, 0.12);
+  border: 1px solid rgba(52, 211, 153, 0.35);
+}
+.power-health-warn {
+  color: #fbbf24;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+}
+.power-health-bad {
+  color: #f87171;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+}
+.power-health-neutral {
+  color: #94a3b8;
+  background: rgba(148, 163, 184, 0.12);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+}
+.power-telemetry-frame {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+}
+.power-telemetry-good {
+  color: #6ee7b7;
+  background: rgba(52, 211, 153, 0.1);
+  border: 1px solid rgba(52, 211, 153, 0.3);
+}
+.power-telemetry-bad {
+  color: #f87171;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+.power-telemetry-neutral {
+  color: #94a3b8;
+  background: rgba(148, 163, 184, 0.1);
+  border: 1px solid rgba(148, 163, 184, 0.3);
+}
+.power-value-stale {
+  color: #f87171;
+  font-weight: 700;
+}
+.power-value-na {
+  color: #64748b;
+  font-style: italic;
+}
+.power-bound-note {
+  color: #64748b;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+}
+.power-safety-notice {
+  color: #818cf8;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+}
+.power-param-input {
+  width: 108px;
+  padding: 5px 8px;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  background: #0f172a;
+  color: #e2e8f0;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+.power-param-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25);
+}
+.power-param-input:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.power-param-select {
+  padding: 5px 8px;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  background: #0f172a;
+  color: #e2e8f0;
+  font-size: 13px;
+}
+.power-enum-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.power-page-message {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  color: #fbbf24;
+  font-size: 12.5px;
+  margin: 12px 0;
+}
+.power-page-message-stale {
+  background: rgba(239, 68, 68, 0.09);
+  border-color: rgba(239, 68, 68, 0.3);
+  color: #f87171;
+}
+.power-esc-section {
+  padding: 14px 16px;
+}
+.power-esc-warning {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 8px 0 12px;
+  color: #fbbf24;
+  font-size: 12px;
+}
+.power-esc-section .setup-params-btn:disabled {
+  color: #e5e7eb;
+  -webkit-text-fill-color: #e5e7eb;
+  background: #1e293b;
+  border-color: #475569;
+  opacity: 0.85;
+}
+.power-battery-form {
+  width: 100%;
+  max-width: 1120px;
+  border-top: 1px solid #263449;
+  border-bottom: 1px solid #263449;
+  padding: 4px 0;
+}
+.power-inline-telemetry {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  padding: 8px 0;
+  color: #94a3b8;
+  font-size: 12px;
+  border-bottom: 1px solid rgba(71, 85, 105, 0.35);
+}
+.power-inline-telemetry strong { color: #e2e8f0; }
+.power-inline-telemetry span { white-space: nowrap; }
+.power-form-section { padding: 14px 0; border-bottom: 1px solid rgba(71, 85, 105, 0.35); }
+.power-form-section h3 { margin: 0 0 8px; font-size: 14px; color: #e2e8f0; }
+.power-form-grid { display: grid; grid-template-columns: repeat(2, minmax(340px, 1fr)); gap: 6px 48px; }
+.power-form-subheading { grid-column: 1 / -1; margin: 12px 0 2px; color: #94a3b8; font-size: 12px; font-weight: 600; }
+.power-unavailable-field { display: grid; grid-template-columns: minmax(170px, 1fr) 104px 20px; align-items: center; gap: 8px; min-height: 32px; color: #cbd5e1; font-size: 12px; }
+.power-unavailable-field input { width: 104px; box-sizing: border-box; padding: 5px 8px; border: 1px solid #334155; border-radius: 6px; background: #0f172a; color: #64748b; font-size: 12px; }
+.power-unavailable-field input:disabled { color: #e5e7eb; -webkit-text-fill-color: #e5e7eb; opacity: 0.85; }
+.power-unavailable-field em { color: #94a3b8; font-style: normal; }
+.power-battery-range { display: flex; justify-content: flex-end; gap: 20px; padding-top: 8px; color: #94a3b8; font-size: 12px; }
+.power-scaling-row { display: grid; grid-template-columns: minmax(170px, 1fr) 104px auto; align-items: center; gap: 8px; min-height: 32px; color: #cbd5e1; font-size: 12px; }
+.power-scaling-row input { width: 104px; box-sizing: border-box; padding: 5px 8px; border: 1px solid #334155; border-radius: 6px; background: #0f172a; color: #e2e8f0; }
+.power-scaling-row label { color: #cbd5e1; }
+.power-scaling-row .setup-params-btn,
+.power-unavailable-field .setup-params-btn,
+.power-esc-section .setup-params-btn { width: auto; min-width: 96px; max-width: 150px; white-space: nowrap; }
+.power-esc-section { width: 100%; max-width: 1120px; box-sizing: border-box; margin: 12px 0 0; padding: 14px 0; border-top: 1px solid rgba(71, 85, 105, 0.45); border-bottom: 1px solid rgba(71, 85, 105, 0.45); }
+.power-esc-section .setup-card-title { margin: 0 0 8px; text-align: left; }
+.power-esc-section .power-esc-warning { max-width: 760px; }
+.power-config-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.power-unavailable-field .setup-params-btn:disabled { color: #e5e7eb; border-color: #475569; background: #1e293b; opacity: 0.8; }
+.power-inline-note { display: inline-block; margin-top: 8px; color: #94a3b8; font-size: 11.5px; }
+.power-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 12px 0;
+}
+.power-options { display: grid; gap: 8px; padding: 4px 0 14px; }
+.power-checkbox-row { display: flex; align-items: center; gap: 8px; color: #cbd5e1; font-size: 12.5px; cursor: pointer; }
+.power-checkbox-row input { accent-color: #8b5cf6; }
+@media (max-width: 700px) {
+  .power-form-grid { grid-template-columns: 1fr; }
+}
+.power-calc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+.power-calc {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 10px;
+  background: #0b1220;
+  border: 1px solid #1e293b;
+}
+.power-calc-title {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #cbd5e1;
+  margin: 0 0 4px;
+}
+.power-calc-field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 12px;
+  color: #94a3b8;
+}
+.power-calc-field input {
+  width: 110px;
+  padding: 4px 8px;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  background: #0f172a;
+  color: #e2e8f0;
+  font-size: 13px;
+  text-align: right;
+}
+.power-calc-result {
+  margin: 4px 0 0;
+  font-size: 12.5px;
+  color: #34d399;
+  font-weight: 600;
+}
+.power-calc-error {
+  margin: 4px 0 0;
+  font-size: 12.5px;
+  color: #f87171;
+}
+.power-advanced-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  color: #cbd5e1;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+}
+.power-advanced-toggle:hover {
+  color: #ffffff;
+}
+.power-reboot {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: #fbbf24;
+  font-size: 12.5px;
+  margin-top: 10px;
+}
+
+/* ---------------------------------------------------------------------------
+ * Safety Setup — compact QGroundControl-style configuration form
+ *
+ * Information architecture (not a dashboard):
+ *   Battery Failsafe Triggers | General Failsafe Triggers
+ *   GeoFence                  | Return to Launch
+ *   Arming Checks (full width, compact horizontal checks)
+ * ---------------------------------------------------------------------- */
+
+/* Two columns on normal desktop, single column only when genuinely narrow. */
+/* The Safety form is dense configuration, not prose: let it use the full
+   Setup content width instead of the shared narrow page cap. */
+.setup-page-safety {
+  max-width: 1400px;
+}
+
+.safety-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 10px 16px;
+  align-items: start;
+}
+@media (max-width: 1180px) {
+  .safety-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.safety-section {
+  background: #141a2a;
+  border: 1px solid #222b40;
+  border-radius: 8px;
+  padding: 7px 10px 8px;
+  min-width: 0;
+}
+.safety-section-wide {
+  grid-column: 1 / -1;
+}
+.safety-section-title {
+  margin: 0 0 3px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+  color: #a78bfa;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.safety-section-body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* One horizontal row per field: label left, compact control right. */
+.safety-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(118px, 186px);
+  align-items: center;
+  gap: 10px;
+  min-height: 34px;
+  padding: 1px 0;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.06);
+}
+.safety-row:last-child {
+  border-bottom: none;
+}
+.safety-row-wide {
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  gap: 4px;
+  min-height: 0;
+  padding: 4px 0;
+}
+.safety-label {
+  color: #d7deec;
+  font-size: 12.5px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.safety-unit {
+  color: #7c8798;
+  font-size: 11px;
+  font-style: normal;
+}
+.safety-note {
+  color: #7c8798;
+  font-size: 11px;
+  font-style: normal;
+}
+.safety-control {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: flex-end;
+  min-width: 0;
+}
+.safety-input,
+.safety-select {
+  width: 100%;
+  min-width: 0;
+  height: 30px;
+  background: #0d1322;
+  border: 1px solid #2a3348;
+  border-radius: 5px;
+  color: #e2e8f0;
+  font-size: 12.5px;
+  padding: 0 7px;
+}
+.safety-input:focus,
+.safety-select:focus {
+  border-color: #7c3aed;
+  outline: none;
+}
+.safety-input:disabled,
+.safety-select:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.safety-value-na {
+  color: #8b97ab;
+  font-size: 11.5px;
+  white-space: nowrap;
+}
+/* An unsupported field is still one horizontal row, with a compact
+   read-only control. The value stays honestly absent. */
+.safety-row-na {
+  grid-template-columns: minmax(0, 1fr) minmax(118px, 186px);
+}
+.safety-na {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0b101d;
+  border: 1px dashed #2a3348;
+  border-radius: 5px;
+  color: #8b97ab;
+  font-size: 12px;
+}
+.safety-row-warn {
+  grid-template-columns: auto minmax(0, 1fr);
+  color: #fbbf24;
+  font-size: 11.5px;
+  align-items: start;
+}
+.safety-row-note {
+  grid-template-columns: minmax(0, 1fr);
+  color: #8b97ab;
+  font-size: 11.5px;
+}
+.safety-field-error {
+  grid-column: 1 / -1;
+  color: #fca5a5;
+  font-size: 11px;
+}
+
+/* Compact horizontal bitmask checkboxes (Arming Checks / Fence types) */
+.safety-checks {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 2px 12px;
+}
+.safety-check {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-width: 0;
+  color: #d7deec;
+  font-size: 11.5px;
+  line-height: 1.3;
+  cursor: pointer;
+}
+.safety-check span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.safety-check input {
+  accent-color: #7c3aed;
+  margin: 0;
+}
+.safety-check input:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+/* Actions + advanced */
+.safety-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+.safety-advanced {
+  margin-top: 12px;
+}
+.safety-advanced-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  color: #a78bfa;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 0;
+}
+.safety-advanced-body {
+  margin-top: 6px;
+  border-top: 1px solid rgba(148, 163, 184, 0.14);
+  padding-top: 8px;
+}
+.safety-advanced-cat {
+  margin-bottom: 10px;
+}
+.safety-advanced-cat-title {
+  color: #a78bfa;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 0 2px;
+}
+
+.safety-warning {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: #fbbf24;
+  font-size: 12.5px;
+  margin-bottom: 16px;
+}
+
+/* Confirmation dialog for failsafe-affecting writes */
+.safety-confirm-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 60;
+  padding: 18px;
+}
+.safety-confirm {
+  width: min(560px, 100%);
+  max-height: 80vh;
+  overflow: auto;
+  background: #0b1220;
+  border: 1px solid #262f47;
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55);
+}
+.safety-confirm-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 8px;
+  color: #fbbf24;
+  font-size: 15px;
+  font-weight: 700;
+}
+.safety-confirm-text {
+  color: #94a3b8;
+  font-size: 12.5px;
+  margin: 0 0 4px;
+}
+.safety-confirm-list {
+  margin: 12px 0;
+}
+.safety-confirm-row {
+  border: 1px solid #1c2133;
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+}
+.safety-confirm-name {
+  color: #e2e8f0;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.safety-confirm-values {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12.5px;
+}
+.safety-confirm-arrow {
+  color: #64748b;
+}
+.safety-confirm-current {
+  color: #94a3b8;
+}
+.safety-confirm-next {
+  color: #6ee7b7;
+  font-weight: 600;
+}
+.safety-confirm-effect {
+  color: #94a3b8;
+  font-size: 11.5px;
+  margin-top: 4px;
+}
+.safety-confirm-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+
+/* ------------------------------------------------------------------
+   Phase 8I — Gimbal / Logging / Scripting configuration fields
+   Same purple Setup surface as the rest of the pages; these only add
+   the staged-write row layout and the reported capability list.
+   ------------------------------------------------------------------ */
+.setup-payload-field {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 9px 0;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+}
+.setup-payload-field:last-child {
+  border-bottom: none;
+}
+.setup-payload-field.staged {
+  box-shadow: inset 3px 0 0 #a78bfa;
+  padding-left: 10px;
+}
+.setup-payload-label {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: #e2e8f0;
+  font-size: 13px;
+  font-weight: 600;
+  min-width: 240px;
+}
+.setup-payload-value {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1 1 auto;
+  justify-content: flex-end;
+  color: #cbd5f5;
+  font-size: 12.5px;
+  text-align: right;
+}
+.setup-payload-reboot {
+  color: #fbbf24;
+  background: rgba(251, 191, 36, 0.12);
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  border-radius: 4px;
+  padding: 1px 6px;
+  font-size: 10.5px;
+  font-style: normal;
+  font-weight: 600;
+}
+.setup-payload-revert {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(148, 163, 184, 0.14);
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  border-radius: 5px;
+  color: #e2e8f0;
+  cursor: pointer;
+  font-size: 11.5px;
+  padding: 4px 9px;
+}
+.setup-payload-revert:hover {
+  background: rgba(148, 163, 184, 0.24);
+}
+.setup-payload-caps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.setup-payload-caps li {
+  background: rgba(167, 139, 250, 0.12);
+  border: 1px solid rgba(167, 139, 250, 0.28);
+  border-radius: 4px;
+  color: #c4b5fd;
+  font-size: 11px;
+  padding: 2px 8px;
+  text-transform: capitalize;
+}
+
+/* ---------------------------------------------------------------------------
+   QGC-style radio lists, optional-value rows and compact checkboxes.
+   Same horizontal label-left / control-right rhythm as the rest of Safety.
+   --------------------------------------------------------------------------- */
+
+.safety-row-radio {
+  min-height: 28px;
+}
+
+.safety-radio {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 13px;
+  height: 13px;
+  min-width: 13px;
+  border: 1px solid #2a3348;
+  border-radius: 50%;
+  background: #0d1322;
+  margin: 0;
+  display: inline-grid;
+  place-content: center;
+  cursor: pointer;
+  transition: border-color 0.12s ease, box-shadow 0.12s ease;
+}
+
+.safety-radio::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #7c3aed;
+  transform: scale(0);
+  transition: transform 0.12s ease;
+}
+
+.safety-radio:checked {
+  border-color: #7c3aed;
+}
+
+.safety-radio:checked::after {
+  transform: scale(1);
+}
+
+.safety-radio:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.safety-check-box {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 13px;
+  height: 13px;
+  min-width: 13px;
+  border: 1px solid #2a3348;
+  border-radius: 3px;
+  background: #0d1322;
+  margin: 0;
+  display: inline-grid;
+  place-content: center;
+  cursor: pointer;
+}
+
+.safety-check-box::after {
+  content: "";
+  width: 7px;
+  height: 4px;
+  border-left: 1.6px solid #7c3aed;
+  border-bottom: 1.6px solid #7c3aed;
+  transform: rotate(-45deg) scale(0);
+  margin-top: -2px;
+  transition: transform 0.12s ease;
+}
+
+.safety-check-box:checked {
+  border-color: #7c3aed;
+}
+
+.safety-check-box:checked::after {
+  transform: rotate(-45deg) scale(1);
+}
+
+.safety-check-box:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Number input sharing its row with a radio/checkbox. */
+.safety-input-inline {
+  width: 84px;
+  flex: 0 0 auto;
+}
+
+.safety-row .safety-unit {
+  font-style: normal;
+  color: #8b97ab;
+  font-size: 10px;
+  margin-left: 1px;
+}
+
+.safety-check-all {
+  color: #7c3aed;
+  font-weight: 600;
+}
+
+/* ============================================================
+   PHASE 8H — MOTORS SETUP (Phase 1: UI only, no actuator path)
+   Composition follows the QGC Motors Setup reference: six
+   vertical motor controls on the left, vehicle motor layout
+   diagram on the right, a centred reverse-direction row, a
+   compact locked safety control, and a read-only output table.
+   ============================================================ */
+
+.setup-page-motors {
+  max-width: 1400px;
+}
+
+.setup-page-motors .setup-page-header {
+  margin-bottom: 10px;
+}
+
+.actuator-page .setup-page-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* --- main two-column area: controls (~2/3) | diagram (~1/3) --- */
+
+.motor-test-area {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr);
+  gap: 16px 28px;
+  align-items: center;
+  margin: 10px 0 6px;
+  padding: 16px 20px 18px;
+  background: #0f1526;
+  border: 1px solid #27272a;
+  border-radius: 14px;
+}
+
+.motor-controls {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.motor-sliders {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  justify-items: center;
+  gap: 12px;
+  padding: 0 10px;
+}
+
+/* --- one vertical motor control --- */
+
+.motor-slider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.motor-slider-number {
+  font-size: 12px;
+  font-weight: 700;
+  color: #cbd5e1;
+  line-height: 1;
+}
+
+.motor-slider-track {
+  position: relative;
+  width: 6px;
+  height: 200px;
+  background: #2a3348;
+  border-radius: 999px;
+  cursor: ns-resize;
+  touch-action: none;
+}
+
+.motor-slider-track:focus-visible {
+  outline: 2px solid #94a3b8;
+  outline-offset: 6px;
+}
+
+/* Unavailable slot: no size or colour change, only an unavailable affordance. */
+.motor-slider-track[aria-disabled="true"] {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.motor-slider-track[aria-disabled="true"]:hover .motor-slider-handle {
+  background: #8b98ad;
+}
+
+.motor-slider-fill {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #475569;
+  border-radius: 999px;
+  transition: height 0.08s linear;
+}
+
+.motor-slider-handle {
+  position: absolute;
+  left: 50%;
+  width: 22px;
+  height: 22px;
+  margin-left: -11px;
+  background: #8b98ad;
+  border: 2px solid #111827;
+  border-radius: 50%;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.55);
+  transition: bottom 0.08s linear;
+  pointer-events: none;
+}
+
+.motor-slider-track:hover .motor-slider-handle {
+  background: #a7b2c4;
+}
+
+/* Unavailable slot: no size or colour change, only an unavailable affordance. */
+.motor-reverse-cell:has(input:disabled) {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+/* --- vehicle motor layout diagram --- */
+
+.motor-diagram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.motor-diagram-svg {
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+}
+
+.motor-diagram-arm {
+  stroke: #39415c;
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.motor-diagram-body {
+  fill: #161d2e;
+  stroke: #33405c;
+  stroke-width: 2;
+}
+
+.motor-diagram-nose {
+  fill: #7c3aed;
+  opacity: 0.85;
+}
+
+.motor-diagram-hub {
+  fill: #1e2740;
+  stroke: #33405c;
+  stroke-width: 2;
+}
+
+.motor-diagram-motor {
+  fill: #7c3aed;
+  stroke: #0d1322;
+  stroke-width: 2;
+}
+
+.motor-diagram-label {
+  fill: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  text-anchor: middle;
+}
+
+.motor-diagram-note {
+  margin: 0;
+  max-width: 300px;
+  font-size: 11px;
+  line-height: 1.4;
+  color: #7c8aa5;
+  text-align: center;
+}
+
+/* --- reverse motor direction --- */
+
+.motor-reverse {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0 4px;
+}
+
+.motor-reverse-label {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #cbd5e1;
+}
+
+.motor-reverse-boxes {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  justify-items: center;
+  gap: 12px;
+  padding: 0 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.motor-reverse-cell {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.motor-reverse-cell input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 22px;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.motor-reverse-box {
+  width: 20px;
+  height: 20px;
+  background: #111827;
+  border: 1px solid #3b475f;
+  border-radius: 4px;
+  transition: background 0.12s ease, border-color 0.12s ease;
+}
+
+.motor-reverse-cell:hover .motor-reverse-box {
+  border-color: #7c3aed;
+}
+
+.motor-reverse-cell input:checked + .motor-reverse-box {
+  background: #7c3aed;
+  border-color: #7c3aed;
+}
+
+.motor-reverse-cell input:focus-visible + .motor-reverse-box {
+  outline: 2px solid #7c3aed;
+  outline-offset: 2px;
+}
+
+/* --- locked bottom safety control --- */
+
+.motor-lock {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+  padding: 12px 16px;
+  background: #111827;
+  border: 1px solid #27272a;
+  border-radius: 12px;
+}
+
+.motor-lock-knob {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  background: #1c2436;
+  color: #5a6a88;
+  border: 2px dashed #3b475f;
+  border-radius: 50%;
+  cursor: not-allowed;
+}
+
+.motor-lock-text {
+  min-width: 0;
+}
+
+.motor-lock-title {
+  margin: 0 0 3px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #94a3b8;
+}
+
+.motor-lock-hint {
+  margin: 0;
+  font-size: 11.5px;
+  line-height: 1.4;
+  color: #7c8aa5;
+}
+
+/* --- read-only discovered outputs (Phase 2 groundwork) --- */
+
+.motor-discovery {
+  margin-top: 12px;
+  margin-bottom: 0;
+  padding: 12px 16px;
+}
+
+.setup-page-motors .setup-card-title {
+  margin-bottom: 8px;
+}
+
+.setup-page-motors .motor-discovery .actuator-table th {
+  padding: 5px 8px;
+}
+
+.setup-page-motors .motor-discovery .actuator-table td {
+  padding: 6px 8px;
+}
+
+.setup-page-motors .motor-discovery .setup-note {
+  margin-top: 8px;
+}
+
+.setup-page-motors > .setup-refresh-btn {
+  margin-top: 10px;
+}
+
+/* --- responsive: stack the diagram below the controls --- */
+
+@media (max-width: 900px) {
+  .motor-test-area {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .motor-diagram {
+    order: 2;
+    padding-top: 18px;
+    border-top: 1px solid #1c2133;
+  }
+
+  .motor-slider-track {
+    height: 180px;
+  }
+}
+
+/* --- Firmware: version selection, confirmation warning, install progress --- */
+
+.setup-firmware-release-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.setup-firmware-release {
+  align-items: flex-start;
+}
+
+.setup-firmware-channel + .setup-firmware-channel {
+  margin-top: 12px;
+}
+
+.setup-firmware-channel-title {
+  margin: 10px 0 0;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
+/* CURRENT / SELECTED markers, so the installed and chosen builds are obvious. */
+.setup-firmware-badge {
+  margin-left: 8px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  white-space: nowrap;
+}
+
+.setup-firmware-badge-current {
+  border: 1px solid rgba(56, 189, 248, .45);
+  background: rgba(56, 189, 248, .16);
+  color: #7dd3fc;
+}
+
+.setup-firmware-badge-selected {
+  border: 1px solid rgba(74, 222, 128, .45);
+  background: rgba(74, 222, 128, .16);
+  color: #86efac;
+}
+
+/* A release that is neither installed nor chosen. Kept quiet so the two
+   markers that matter -- Current and Selected -- stay findable at a glance. */
+.setup-firmware-badge-available {
+  border: 1px solid rgba(148, 163, 184, .28);
+  background: transparent;
+  color: #64748b;
+}
+
+/* Which vehicle/platform a row targets, and how its compatibility was decided. */
+.setup-firmware-release-target {
+  margin-left: 8px;
+  font-size: 11px;
+  color: #94a3b8;
+  white-space: nowrap;
+}
+
+.setup-firmware-badge-compat {
+  margin-left: 6px;
+}
+
+.setup-firmware-badge-compat-compatible {
+  border: 1px solid rgba(74, 222, 128, .35);
+  background: rgba(74, 222, 128, .1);
+  color: #86efac;
+}
+
+.setup-firmware-badge-compat-incompatible {
+  border: 1px solid rgba(248, 113, 113, .45);
+  background: rgba(248, 113, 113, .14);
+  color: #fca5a5;
+}
+
+/* Unknown compatibility is never styled as a pass. */
+.setup-firmware-badge-compat-unknown {
+  border: 1px solid rgba(251, 191, 36, .4);
+  background: rgba(251, 191, 36, .12);
+  color: #fcd34d;
+}
+
+.setup-firmware-warning {
+  margin: 8px 0 0;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(248, 113, 113, .3);
+  background: rgba(248, 113, 113, .1);
+  color: #fca5a5;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.setup-firmware-progress {
+  display: block;
+  width: 100%;
+  height: 6px;
+  margin-top: 10px;
+}
+
+.setup-firmware-install .setup-firmware-status {
+  align-self: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+/* Download outcome line. Each tone is distinct so an unverified transfer can
+   never be mistaken for a verified one at a glance. */
+.setup-firmware-integrity {
+  margin: 6px 0 0;
+  padding: 7px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.setup-firmware-integrity-verified {
+  border: 1px solid rgba(74, 222, 128, .32);
+  background: rgba(74, 222, 128, .1);
+  color: #86efac;
+}
+
+/* Nothing published could be checked, so this is deliberately not green. */
+.setup-firmware-integrity-unverified {
+  border: 1px solid rgba(251, 191, 36, .4);
+  background: rgba(251, 191, 36, .1);
+  color: #fcd34d;
+}
+
+.setup-firmware-integrity-verification-failed,
+.setup-firmware-integrity-failed {
+  border: 1px solid rgba(248, 113, 113, .34);
+  background: rgba(248, 113, 113, .1);
+  color: #fca5a5;
+}

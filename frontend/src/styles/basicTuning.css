@@ -1,0 +1,273 @@
+/* ------------------------------------------------------------------ */
+/* Basic Tuning — YantraYug theme                                     */
+/* ------------------------------------------------------------------ */
+
+.bt-screen {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px 24px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* Header */
+
+.bt-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.bt-header svg {
+  color: #a855f7;
+}
+
+.bt-staged-badge {
+  margin-left: auto;
+  background: rgba(124, 58, 237, 0.15);
+  color: #a855f7;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+/* Description */
+
+.bt-description {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12px;
+  color: #94a3b8;
+  line-height: 1.5;
+  padding: 10px 12px;
+  background: rgba(124, 58, 237, 0.06);
+  border: 1px solid rgba(124, 58, 237, 0.12);
+  border-radius: 6px;
+}
+
+.bt-description svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: #a855f7;
+}
+
+/* Slider cards */
+
+.bt-sliders {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.bt-slider-card {
+  background: #1a1b23;
+  border: 1px solid #2a2b35;
+  border-radius: 8px;
+  padding: 16px;
+  transition: border-color 0.15s ease;
+}
+
+.bt-slider-card:hover {
+  border-color: #3a3b45;
+}
+
+.bt-slider-card--modified {
+  border-color: rgba(124, 58, 237, 0.4);
+  background: rgba(124, 58, 237, 0.04);
+}
+
+.bt-slider-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.bt-slider-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.bt-slider-modified-badge {
+  font-size: 11px;
+  color: #a855f7;
+  background: rgba(124, 58, 237, 0.12);
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+/* Slider body */
+
+.bt-slider-body {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.bt-range {
+  flex: 1;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  background: #2a2b35;
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+}
+
+.bt-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #7c3aed;
+  border: 2px solid #a855f7;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.bt-range::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 8px rgba(124, 58, 237, 0.4);
+}
+
+.bt-range::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #7c3aed;
+  border: 2px solid #a855f7;
+  cursor: pointer;
+}
+
+.bt-range:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.bt-slider-value {
+  min-width: 52px;
+  text-align: right;
+  font-size: 14px;
+  font-weight: 700;
+  color: #a855f7;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Range labels */
+
+.bt-slider-range-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+/* Description */
+
+.bt-slider-desc {
+  font-size: 11px;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+/* Parameter list */
+
+.bt-slider-params {
+  margin-top: 6px;
+  font-size: 10px;
+  color: #475569;
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+}
+
+/* Disconnected / non-copter */
+
+.bt-disconnected {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 48px 24px;
+  text-align: center;
+  color: #64748b;
+}
+
+.bt-disconnected svg {
+  color: #f59e0b;
+}
+
+.bt-disconnected p {
+  margin: 0;
+  font-size: 13px;
+}
+
+.bt-disconnected-hint {
+  font-size: 11px;
+  color: #475569;
+}
+
+/* Actions */
+
+.bt-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 8px;
+  border-top: 1px solid #2a2b35;
+}
+
+.bt-save-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  background: #7c3aed;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s ease, opacity 0.15s ease;
+}
+
+.bt-save-btn:hover:not(:disabled) {
+  background: #6d28d9;
+}
+
+.bt-save-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.bt-spinner {
+  animation: bt-spin 0.8s linear infinite;
+}
+
+@keyframes bt-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive */
+
+@media (max-width: 640px) {
+  .bt-screen {
+    padding: 12px 16px;
+  }
+
+  .bt-slider-card {
+    padding: 12px;
+  }
+}

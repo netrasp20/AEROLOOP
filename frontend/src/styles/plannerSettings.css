@@ -1,0 +1,163 @@
+/* ------------------------------------------------------------------ */
+/* Planner Settings — YantraYug theme                                  */
+/* ------------------------------------------------------------------ */
+
+.ps-screen {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px 24px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.ps-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.ps-header svg { color: #a855f7; }
+
+.ps-description {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12px;
+  color: #94a3b8;
+  line-height: 1.5;
+  padding: 10px 12px;
+  background: rgba(124, 58, 237, 0.06);
+  border: 1px solid rgba(124, 58, 237, 0.12);
+  border-radius: 6px;
+}
+
+.ps-description svg { flex-shrink: 0; margin-top: 1px; color: #a855f7; }
+
+/* Sections */
+
+.ps-section {
+  background: #1a1b23;
+  border: 1px solid #2a2b35;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.ps-section-header {
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #e2e8f0;
+  border-bottom: 1px solid #2a2b35;
+}
+
+.ps-section-body {
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Fields */
+
+.ps-field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.ps-field--checkbox {
+  justify-content: flex-start;
+}
+
+.ps-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #cbd5e1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.ps-label input[type="checkbox"] {
+  accent-color: #7c3aed;
+  width: 14px;
+  height: 14px;
+}
+
+.ps-select,
+.ps-input {
+  width: 160px;
+  padding: 5px 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #e2e8f0;
+  background: #12131a;
+  border: 1px solid #2a2b35;
+  border-radius: 4px;
+  outline: none;
+}
+
+.ps-select:focus,
+.ps-input:focus {
+  border-color: #7c3aed;
+}
+
+.ps-select option {
+  background: #12131a;
+  color: #e2e8f0;
+}
+
+.ps-input::-webkit-outer-spin-button,
+.ps-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.ps-input[type="number"] { -moz-appearance: textfield; }
+
+/* Actions */
+
+.ps-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #2a2b35;
+}
+
+.ps-save-btn,
+.ps-reset-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.ps-save-btn {
+  color: #fff;
+  background: #7c3aed;
+}
+
+.ps-save-btn:hover { background: #6d28d9; }
+
+.ps-reset-btn {
+  color: #94a3b8;
+  background: transparent;
+  border: 1px solid #3a3b45;
+}
+
+.ps-reset-btn:hover {
+  color: #e2e8f0;
+  border-color: #64748b;
+}

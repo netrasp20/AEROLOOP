@@ -1,0 +1,109 @@
+/* ===========================================
+   CONTROL DOCK — floating over the map
+=========================================== */
+
+.map-control-dock {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 1000;
+  height: fit-content;
+  user-select: none;
+}
+
+/* ===========================================
+   DOCK PANEL
+=========================================== */
+
+.map-control-dock-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 6px;
+  background: #111827;
+  border: 1px solid #2b3242;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+/* ===========================================
+   COMPASS
+=========================================== */
+
+.dock-compass {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #111827;
+  border: 2px solid #7c3aed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dock-compass-needle {
+  font-size: 15px;
+  font-weight: 700;
+  color: white;
+  line-height: 1;
+  transition: transform 0.15s;
+  user-select: none;
+}
+
+/* Fixed north indicator — stays put (no rotation from telemetry). */
+.dock-compass-n {
+  font-size: 15px;
+  font-weight: 700;
+  color: white;
+  line-height: 1;
+  user-select: none;
+}
+
+/* ===========================================
+   DIVIDER
+=========================================== */
+
+.dock-divider {
+  width: 28px;
+  height: 1px;
+  background: #2b3242;
+  flex-shrink: 0;
+}
+
+/* ===========================================
+   BUTTONS
+=========================================== */
+
+.dock-btn {
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 10px;
+  background: #1b2336;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.12s ease;
+  flex-shrink: 0;
+  padding: 0;
+}
+
+.dock-btn:hover {
+  background: #2a3448;
+  transform: scale(1.05);
+}
+
+.dock-btn:active {
+  background: #7c3aed;
+  transform: scale(0.95);
+}
+
+.dock-btn--active {
+  background: #7c3aed !important;
+  box-shadow: 0 0 14px rgba(124, 58, 237, 0.5);
+  transform: scale(1.05);
+}

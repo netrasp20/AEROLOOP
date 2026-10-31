@@ -1,0 +1,104 @@
+.data-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr 300px;
+  grid-template-rows: 1fr 180px;
+  gap: 16px;
+  padding: 16px;
+  height: calc(100vh - 120px);
+  background: #0b1020;
+}
+
+.left-panel,
+.right-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.center-panel {
+  display: flex;
+}
+
+.data-card {
+  background: #111827;
+  border: 1px solid #27272a;
+  border-radius: 14px;
+  padding: 16px;
+  color: white;
+}
+
+.right-panel .data-card {
+  padding: 18px;
+}
+
+.map-card {
+  flex: 1;
+}
+
+.placeholder {
+  height: 100%;
+  min-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #9ca3af;
+}
+
+.hud-circle,
+.compass-circle {
+  width: 180px;
+  height: 180px;
+  margin: auto;
+  border-radius: 50%;
+  border: 3px solid #7c3aed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bottom-console {
+  grid-column: 1 / 4;
+}
+
+.console {
+  background: #111827;
+  border: 1px solid #27272a;
+  border-radius: 14px;
+  padding: 16px;
+  color: #4ade80;
+  font-family: monospace;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+}
+
+.console-line {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.console-line.muted {
+  color: #6b7280;
+}
+
+.console-line.info {
+  color: #60a5fa;
+}
+
+.compass-needle {
+  font-size: 32px;
+  font-weight: 700;
+  color: white;
+  transition: transform 0.15s;
+  user-select: none;
+}
+
+.compass-heading {
+  text-align: center;
+  margin-top: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #c4b5fd;
+}

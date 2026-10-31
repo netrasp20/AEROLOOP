@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "timestamp": "2026-08-03T06:11:30.448Z",
+  "home": null,
+  "waypoints": [
+    {
+      "id": 1,
+      "lat": 13.01323413525602,
+      "lng": 77.70363807678224,
+      "altitude": 10,
+      "hoverTime": 5,
+      "command": "NAV_WAYPOINT",
+      "frame": "GLOBAL_RELATIVE_ALT",
+      "sequence": 1
+    },
+    {
+      "id": 2,
+      "lat": 13.01341184127443,
+      "lng": 77.70461440086366,
+      "altitude": 10,
+      "hoverTime": 5,
+      "command": "NAV_WAYPOINT",
+      "frame": "GLOBAL_RELATIVE_ALT",
+      "sequence": 2
+    }
+  ]
+}

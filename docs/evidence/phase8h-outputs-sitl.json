@@ -1,0 +1,55 @@
+{
+  "validation": "ArduCopter SITL read-only output observation",
+  "vehicle": {
+    "connected": true,
+    "connectionState": "connected",
+    "vehicleType": "QUADROTOR",
+    "autopilot": "ARDUPILOTMEGA",
+    "mode": "STABILIZE",
+    "armed": false,
+    "connectionType": "UDP"
+  },
+  "parameterSync": { "state": "complete", "receivedCount": 1379, "expectedCount": 1379 },
+  "motors": {
+    "state": "READY",
+    "readOnly": true,
+    "channelCount": 16,
+    "motorCount": 4,
+    "functionIds": [33, 34, 35, 36]
+  },
+  "servoOutputs": {
+    "state": "READY",
+    "outputCount": 16,
+    "livePwm": [1000, 1000, 1000, 1000]
+  },
+  "esc": {
+    "state": "READY",
+    "escCount": 4,
+    "source": "ESC_TELEMETRY_1_TO_4",
+    "values": [
+      { "index": 1, "rpm": 0, "voltage": 16.79, "current": 0.8, "temperature": 32, "consumptionMah": 1, "status": "Unavailable" },
+      { "index": 2, "rpm": 0, "voltage": 16.79, "current": 0.8, "temperature": 32, "consumptionMah": 1, "status": "Unavailable" },
+      { "index": 3, "rpm": 0, "voltage": 16.79, "current": 0.8, "temperature": 32, "consumptionMah": 1, "status": "Unavailable" },
+      { "index": 4, "rpm": 0, "voltage": 16.79, "current": 0.8, "temperature": 32, "consumptionMah": 1, "status": "Unavailable" }
+    ]
+  },
+  "disconnectReconnect": {
+    "disconnect": {
+      "motors": { "state": "CONNECTION_LOST", "outputCount": 0 },
+      "servoOutputs": { "state": "CONNECTION_LOST", "outputCount": 0 },
+      "esc": { "state": "CONNECTION_LOST", "escCount": 0 }
+    },
+    "reconnect": {
+      "parameterSync": "complete",
+      "motors": { "state": "READY", "outputCount": 4 },
+      "servoOutputs": { "state": "READY", "outputCount": 16 },
+      "esc": { "state": "READY", "escCount": 4 }
+    }
+  },
+  "safety": {
+    "parameterWrites": 0,
+    "actuatorCommands": 0,
+    "armed": false,
+    "physicalOperation": false
+  }
+}

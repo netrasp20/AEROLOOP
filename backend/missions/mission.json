@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "timestamp": "2026-08-27T09:47:03.585Z",
+  "home": null,
+  "waypoints": [
+    {
+      "id": 1,
+      "lat": 13.015262066957186,
+      "lng": 77.80139923095705,
+      "altitude": 10,
+      "hoverTime": 0,
+      "command": "NAV_WAYPOINT",
+      "frame": "GLOBAL_RELATIVE_ALT",
+      "sequence": 1
+    },
+    {
+      "id": 2,
+      "lat": 13.07011445259898,
+      "lng": 77.81581878662111,
+      "altitude": 10,
+      "hoverTime": 0,
+      "command": "NAV_WAYPOINT",
+      "frame": "GLOBAL_RELATIVE_ALT",
+      "sequence": 2
+    },
+    {
+      "id": 3,
+      "lat": 13.05255632399067,
+      "lng": 77.89667129516603,
+      "altitude": 10,
+      "hoverTime": 0,
+      "command": "NAV_WAYPOINT",
+      "frame": "GLOBAL_RELATIVE_ALT",
+      "sequence": 3
+    }
+  ]
+}

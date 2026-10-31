@@ -1,0 +1,1 @@
+{"success":true,"connected":true,"connectionState":"connected","disconnectReason":null,"armed":false,"mode":"STABILIZE","systemId":1,"componentId":1,"vehicleType":"QUADROTOR","autopilot":"ARDUPILOTMEGA","gpsFix":0,"satellites":0,"lastHeartbeat":1790394263128,"connectionType":"SERIAL"}

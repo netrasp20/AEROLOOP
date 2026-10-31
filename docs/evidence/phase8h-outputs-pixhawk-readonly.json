@@ -1,0 +1,45 @@
+{
+  "validation": "real Pixhawk read-only",
+  "vehicle": {
+    "connected": true,
+    "connectionState": "connected",
+    "vehicleType": "QUADROTOR",
+    "autopilot": "ARDUPILOTMEGA",
+    "mode": "STABILIZE",
+    "armed": false,
+    "connectionType": "SERIAL"
+  },
+  "parameterSync": { "state": "complete", "receivedCount": 991, "expectedCount": 991 },
+  "motors": {
+    "state": "READY",
+    "readOnly": true,
+    "channelCount": 16,
+    "motorCount": 4,
+    "outputs": [
+      { "output": 1, "function": "Motor1", "functionId": 33, "source": "SERVO1_FUNCTION" },
+      { "output": 2, "function": "Motor2", "functionId": 34, "source": "SERVO2_FUNCTION" },
+      { "output": 3, "function": "Motor3", "functionId": 35, "source": "SERVO3_FUNCTION" },
+      { "output": 4, "function": "Motor4", "functionId": 36, "source": "SERVO4_FUNCTION" }
+    ]
+  },
+  "servoOutputs": {
+    "state": "READY",
+    "outputCount": 16,
+    "motorOutputValues": { "min": 1100, "trim": 1500, "max": 1900, "reversed": false },
+    "livePwm": [1000, 1000, 1000, 1000],
+    "remainingOutputTelemetry": "UNAVAILABLE"
+  },
+  "esc": {
+    "state": "READY",
+    "telemetry": "UNAVAILABLE",
+    "escCount": 0,
+    "MOT_PWM_TYPE": { "value": 0, "decoded": "Normal", "rebootRequired": true },
+    "RC_SPEED": { "value": 490, "units": "Hz" }
+  },
+  "safety": {
+    "parameterWrites": 0,
+    "actuatorCommands": 0,
+    "armed": false,
+    "physicalOperation": false
+  }
+}

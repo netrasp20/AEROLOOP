@@ -1,0 +1,659 @@
+/* ===========================
+   NAVBAR
+=========================== */
+
+.navbar {
+  height: 78px;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 24px;
+
+  background: linear-gradient(
+    180deg,
+    #12172a 0%,
+    #0b1020 100%
+  );
+
+  border-bottom: 1px solid #272d42;
+
+  user-select: none;
+
+  position: relative;
+
+  z-index: 1000;
+}
+
+/* ===========================
+   LEFT
+=========================== */
+
+.navbar-left{
+
+    display:flex;
+    align-items:center;
+    gap:45px;
+
+}
+
+/* ===========================
+   LOGO
+=========================== */
+
+.logo-box{
+
+    display:flex;
+    align-items:center;
+    gap:14px;
+
+    animation:logo-entrance .5s ease-out backwards;
+
+}
+
+.logo-icon{
+
+    width:48px;
+    height:48px;
+
+    border-radius:14px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:linear-gradient(
+        135deg,
+        #7C3AED,
+        #EC4899,
+        #F97316,
+        #22D3EE,
+        #7C3AED
+    );
+
+    color:white;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    box-shadow:0 0 20px rgba(124,58,237,.45);
+
+}
+
+.logo-text{
+
+    display:flex;
+    flex-direction:column;
+
+}
+
+.logo-text h2{
+
+    color:white;
+
+    font-size:28px;
+
+    letter-spacing:1px;
+
+    margin:0;
+
+    line-height:28px;
+
+    font-weight:700;
+
+}
+
+.logo-text span{
+
+    color:#9CA3AF;
+
+    font-size:11px;
+
+    letter-spacing:2px;
+
+    margin-top:2px;
+
+}
+
+@keyframes logo-entrance {
+    from {
+        opacity:0;
+        transform:scale(.95);
+    }
+    to {
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+/* ===========================
+   MENU
+=========================== */
+
+.navbar-menu{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    position:relative;
+
+}
+
+/* ===========================
+   BUTTON
+=========================== */
+
+.nav-item{
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:12px 16px;
+
+    border:none;
+
+    background:transparent;
+
+    color:#d1d5db;
+
+    border-radius:12px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    transition:transform .2s ease, color .2s ease, background .2s ease, box-shadow .2s ease;
+
+    animation:nav-item-entrance .4s ease-out backwards;
+
+}
+
+.nav-item:nth-child(1){ animation-delay:.08s; }
+.nav-item:nth-child(2){ animation-delay:.14s; }
+.nav-item:nth-child(3){ animation-delay:.20s; }
+.nav-item:nth-child(4){ animation-delay:.26s; }
+
+@keyframes nav-item-entrance {
+    from {
+        opacity:0;
+        transform:translateX(-10px);
+    }
+    to {
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+.nav-item svg{
+
+    width:18px;
+    height:18px;
+
+}
+
+.nav-item:hover{
+
+    color:white;
+
+    background:rgba(124,58,237,.15);
+
+    box-shadow:
+
+    0 0 16px rgba(124,58,237,.28);
+
+    transform:scale(1.02);
+
+}
+
+.active{
+
+    color:white;
+
+    background:rgba(124,58,237,.22);
+
+    box-shadow:
+
+    0 0 14px rgba(124,58,237,.35);
+
+}
+
+/* Sliding active indicator */
+.nav-indicator{
+
+    position:absolute;
+
+    bottom:0;
+
+    height:3px;
+
+    border-radius:50px;
+
+    background:linear-gradient(
+        90deg,
+        #7C3AED,
+        #EC4899
+    );
+
+    transition:left .28s ease, width .28s ease;
+
+}
+
+/* ===========================
+   RIGHT
+=========================== */
+
+.navbar-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    animation:right-entrance .45s ease-out backwards;
+
+    animation-delay:.2s;
+
+}
+
+@keyframes right-entrance {
+    from {
+        opacity:0;
+        transform:translateX(12px);
+    }
+    to {
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+/* ===========================
+   RADIO ICON
+=========================== */
+
+.telemetry-icon{
+
+    color:#00ff88;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:opacity .3s ease;
+
+}
+
+/* soft pulsing glow around the telemetry icon while connected */
+.navbar-right .telemetry-icon.alive {
+    animation: pulse-green 2s infinite;
+}
+
+/* ===========================
+   DROPDOWN
+=========================== */
+
+.dropdown-button{
+
+    height:42px;
+
+    min-width:110px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:0 14px;
+
+    border-radius:10px;
+
+    border:1px solid #30384d;
+
+    background:#151b2d;
+
+    color:white;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    transition:.2s;
+
+}
+
+.dropdown-button:hover{
+
+    border-color:#7C3AED;
+
+    box-shadow:
+
+    0 0 12px rgba(124,58,237,.35);
+
+    transform:translateY(-1px);
+
+}
+
+/* caret wrapper for the flight-mode dropdown */
+.dropdown-wrap{
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+}
+
+.dropdown-wrap .dropdown-button{
+    appearance:none;
+    -webkit-appearance:none;
+    padding-right:34px;
+}
+
+.dropdown-wrap .caret{
+    position:absolute;
+    right:12px;
+    top:50%;
+    width:8px;
+    height:8px;
+    border-right:2px solid #94a3b8;
+    border-bottom:2px solid #94a3b8;
+    transform:translateY(-70%) rotate(45deg);
+    pointer-events:none;
+    transition:transform .2s ease;
+}
+
+.dropdown-wrap:focus-within .caret{
+    transform:translateY(-30%) rotate(225deg);
+}
+
+/* ===========================
+   CONNECT
+=========================== */
+
+.connect-button{
+
+    border:none;
+
+    padding:0 28px;
+
+    height:44px;
+
+    border-radius:12px;
+
+    color:white;
+
+    font-weight:700;
+
+    letter-spacing:.5px;
+
+    cursor:pointer;
+
+    background:linear-gradient(
+        135deg,
+        #7C3AED,
+        #EC4899
+    );
+
+    transition:transform .2s ease, box-shadow .2s ease, filter .2s ease;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.connect-button:hover{
+
+    transform:scale(1.02) translateY(-1px);
+
+    box-shadow:
+
+    0 0 18px rgba(236,72,153,.45);
+
+    filter:brightness(1.08);
+
+}
+
+.connect-button:active{
+
+    transform:scale(.98);
+
+}
+
+.connect-button .ripple{
+    position:absolute;
+    border-radius:50%;
+    background:rgba(255,255,255,.35);
+    transform:scale(0);
+    animation:ripple .6s ease-out forwards;
+    pointer-events:none;
+}
+
+@keyframes ripple {
+    to {
+        transform:scale(1);
+        opacity:0;
+    }
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:1400px){
+
+.logo-text span{
+
+display:none;
+
+}
+
+.logo-text h2{
+
+font-size:22px;
+
+}
+
+.nav-item span{
+
+display:none;
+
+}
+
+.dropdown-button{
+
+min-width:80px;
+
+}
+
+}
+/* Remove number arrows */
+
+.dropdown-button[type="number"]::-webkit-outer-spin-button,
+.dropdown-button[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.dropdown-button[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+/* ===========================
+   HEARTBEAT INDICATOR
+=========================== */
+
+.heartbeat-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.heartbeat-indicator.alive {
+  color: #22c55e;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  animation: pulse-green 2s infinite;
+}
+
+.heartbeat-indicator.dead {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.connection-state-chip {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border-radius: 8px;
+  padding: 5px 10px;
+}
+
+.connection-state-connected {
+  color: #22c55e;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.connection-state-connecting {
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  animation: pulse-amber 2s infinite;
+}
+
+.connection-state-lost {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  animation: pulse-red 2s infinite;
+}
+
+.connection-state-no-vehicle {
+  color: #94a3b8;
+  background: rgba(148, 163, 184, 0.08);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+@keyframes pulse-amber {
+  0%, 100% { box-shadow: 0 0 4px rgba(245, 158, 11, 0.2); }
+  50% { box-shadow: 0 0 10px rgba(245, 158, 11, 0.45); }
+}
+
+@keyframes pulse-red {
+  0%, 100% { box-shadow: 0 0 4px rgba(239, 68, 68, 0.2); }
+  50% { box-shadow: 0 0 10px rgba(239, 68, 68, 0.5); }
+}
+
+@keyframes pulse-green {
+  0%, 100% { box-shadow: 0 0 4px rgba(34, 197, 94, 0.3); }
+  50% { box-shadow: 0 0 12px rgba(34, 197, 94, 0.6); }
+}
+
+/* ===========================
+   SPIN ANIMATION (for connecting)
+=========================== */
+
+.spin-icon {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ===========================
+   GLOBAL RECORDING CONTROL (compact)
+   =========================== */
+
+/* Recording control — inline next to the camera buttons on the DATA page
+   (inside the view-main-label bar). Not a fixed overlay, no full-width bar. */
+.bottom-rec-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  /* The view-main-label bar is pointer-events:none (it's a title bar); the
+     REC button itself must remain clickable. */
+  pointer-events: auto;
+  vertical-align: middle;
+}
+
+.rec-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-left: 14px;
+  margin-left: 2px;
+  border-left: 1px solid #272d42;
+}
+
+/* Single compact pill: ● REC / ● REC 00:12 / Save */
+.rec-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 30px;
+  padding: 0 11px;
+  border-radius: 15px;
+  border: 1px solid #30384d;
+  background: #151b2d;
+  color: #e2e8f0;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  white-space: nowrap;
+  line-height: 1;
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.rec-pill:hover {
+  filter: brightness(1.12);
+}
+
+.rec-pill.rec-idle {
+  border-color: rgba(239, 68, 68, 0.5);
+  color: #ef4444;
+}
+
+.rec-pill.rec-active {
+  border-color: rgba(239, 68, 68, 0.6);
+  background: rgba(239, 68, 68, 0.14);
+  color: #fca5a5;
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.25);
+}
+
+.rec-pill.rec-save {
+  border-color: rgba(34, 197, 94, 0.5);
+  color: #22c55e;
+}
+
+.rec-dot {
+  animation: pulse-red 1.2s infinite;
+}
+
+@keyframes pulse-red {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.8); }
+}

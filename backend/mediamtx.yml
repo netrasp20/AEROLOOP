@@ -1,0 +1,14 @@
+rtspAddress: :8554
+rtmpAddress: :1935
+hlsAddress: :8888
+webrtcAddress: :8889
+
+paths:
+  live:
+    source: publisher
+  thermal:
+    source: publisher
+  all:
+    source: publisher
+  testudp:
+    source: udp+mpegts://0.0.0.0:8000

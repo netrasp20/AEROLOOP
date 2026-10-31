@@ -1,0 +1,296 @@
+/* ------------------------------------------------------------------ */
+/* MAVFTP — YantraYug theme                                            */
+/* ------------------------------------------------------------------ */
+
+.ftp-screen {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px 24px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.ftp-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.ftp-header svg { color: #a855f7; }
+
+.ftp-spinner { animation: ftp-spin 0.8s linear infinite; }
+@keyframes ftp-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+.ftp-description {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12px;
+  color: #94a3b8;
+  line-height: 1.5;
+  padding: 10px 12px;
+  background: rgba(124, 58, 237, 0.06);
+  border: 1px solid rgba(124, 58, 237, 0.12);
+  border-radius: 6px;
+}
+
+.ftp-description svg { flex-shrink: 0; margin-top: 1px; color: #a855f7; }
+
+/* Transfer progress */
+
+.ftp-progress {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border: 1px solid #4c1d95;
+  background: #1e1533;
+  color: #c4b5fd;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+.ftp-progress-target { color: #9a9a9a; }
+
+/* Breadcrumb */
+
+.ftp-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 12px;
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  flex-wrap: wrap;
+}
+
+.ftp-bread-btn {
+  background: none;
+  border: none;
+  color: #a855f7;
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-family: inherit;
+}
+
+.ftp-bread-btn:hover { background: rgba(124, 58, 237, 0.1); }
+
+.ftp-bread-segment {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  color: #64748b;
+}
+
+/* Error */
+
+.ftp-error {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  font-size: 12px;
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  border-radius: 6px;
+}
+
+.ftp-error-close {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: #f59e0b;
+  cursor: pointer;
+  padding: 2px;
+}
+
+/* Confirm delete */
+
+.ftp-confirm {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  font-size: 12px;
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 6px;
+}
+
+.ftp-confirm-cancel {
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #94a3b8;
+  background: transparent;
+  border: 1px solid #3a3b45;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.ftp-confirm-delete {
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #fff;
+  background: #ef4444;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* New folder / Rename */
+
+.ftp-new-folder,
+.ftp-rename {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: #1a1b23;
+  border: 1px solid #2a2b35;
+  border-radius: 6px;
+}
+
+.ftp-rename-label {
+  font-size: 12px;
+  color: #94a3b8;
+  white-space: nowrap;
+}
+
+.ftp-new-folder-input,
+.ftp-rename-input {
+  flex: 1;
+  padding: 5px 8px;
+  font-size: 12px;
+  color: #e2e8f0;
+  background: #12131a;
+  border: 1px solid #2a2b35;
+  border-radius: 4px;
+  outline: none;
+}
+
+.ftp-new-folder-input:focus,
+.ftp-rename-input:focus { border-color: #7c3aed; }
+
+/* Buttons */
+
+.ftp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #94a3b8;
+  background: transparent;
+  border: 1px solid #3a3b45;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.ftp-btn:hover { color: #e2e8f0; border-color: #64748b; }
+.ftp-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.ftp-btn--primary { color: #fff; background: #7c3aed; border-color: #7c3aed; }
+.ftp-btn--primary:hover { background: #6d28d9; }
+
+.ftp-btn--danger { color: #ef4444; border-color: rgba(239,68,68,0.3); }
+.ftp-btn--danger:hover { background: rgba(239,68,68,0.1); }
+
+/* Toolbar */
+
+.ftp-toolbar {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+/* File list */
+
+.ftp-file-list {
+  background: #1a1b23;
+  border: 1px solid #2a2b35;
+  border-radius: 8px;
+  overflow: hidden;
+  min-height: 200px;
+}
+
+.ftp-loading,
+.ftp-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 40px;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.ftp-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px;
+  cursor: pointer;
+  transition: background 0.1s;
+  border-bottom: 1px solid #22232d;
+}
+
+.ftp-row:last-child { border-bottom: none; }
+.ftp-row:hover { background: rgba(255,255,255,0.02); }
+.ftp-row--selected { background: rgba(124, 58, 237, 0.1); }
+.ftp-row--nav { opacity: 0.7; }
+
+.ftp-row-icon { color: #64748b; flex-shrink: 0; }
+.ftp-row-icon--dir { color: #a855f7; }
+
+.ftp-row-name {
+  flex: 1;
+  font-size: 12px;
+  font-weight: 500;
+  color: #e2e8f0;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ftp-row-type {
+  font-size: 10px;
+  color: #64748b;
+  min-width: 50px;
+}
+
+.ftp-row-size {
+  font-size: 11px;
+  color: #64748b;
+  font-variant-numeric: tabular-nums;
+  min-width: 60px;
+  text-align: right;
+}
+
+/* Disconnected */
+
+.ftp-disconnected {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 48px 24px;
+  text-align: center;
+  color: #64748b;
+}
+
+.ftp-disconnected svg { color: #f59e0b; }
+.ftp-disconnected p { margin: 0; font-size: 13px; }
+.ftp-disconnected-hint { font-size: 11px; color: #475569; }
