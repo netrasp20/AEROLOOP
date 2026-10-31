@@ -10,7 +10,14 @@ Unlike traditional monitoring systems, AeroLoop follows a complete closed-loop a
 
 **Core Workflow:**
 
-`SCOUT → DETECT → DECIDE → ACT → VERIFY`
+`SCOUT → DETECT → DECIDE → ACT → VERIFY
+## 📂 Project Resources
+
+### 📊 Project Presentation
+[View AEROLOOP PPT](https://drive.google.com/file/d/1t4JRPdRgg1vmiuW4ea4RVL4I70_7GPvg/view?usp=drivesdk)
+
+### 🎥 Project Demo
+[Watch AEROLOOP Demo](https://drive.google.com/file/d/1MNLfvGzJBoo8kiJ6FuY8GH0WcxZtCOSz/view?usp=drivesdk)`
 
 ## ✨ Key Features
 
