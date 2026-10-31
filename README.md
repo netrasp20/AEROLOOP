@@ -18,7 +18,7 @@ Unlike traditional monitoring systems, AeroLoop follows a complete closed-loop a
 
 ### 🎥 Project Demo
 [Watch AEROLOOP Demo](https://drive.google.com/file/d/1MNLfvGzJBoo8kiJ6FuY8GH0WcxZtCOSz/view?usp=drivesdk)`
-
+[Drone demo](https://drive.google.com/file/d/1EzsPe0m2mSllGZcoH7KCDqyrEm-ikkum/view?usp=drivesdk)
 
 ## ✨ Key Features
 
